@@ -1,0 +1,15 @@
+.husky
+src/
+tests/
+
+.eslintignore
+.eslintrc.cjs
+.gitignore
+.node-version
+.prettierignore
+.prettierrc
+CHANGELOG.md
+jest.config.js
+LICENSE
+README.md
+tsconfig.json

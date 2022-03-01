@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonJs",
+    "strict": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "pretty": true,
+    "newLine": "lf",
+    "outDir": "dist",
+    "rootDir": "src"
+  },
+  "include": ["src/**/*"]
+}
