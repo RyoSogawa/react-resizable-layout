@@ -1,15 +1,20 @@
 {
-  "name": "npm-package-boilerplate",
-  "description": "",
+  "name": "react-resizable-layout",
+  "description": "Lightweight React component for resizable layout with Drag and Drop.",
   "author": "RyoSogawa",
   "version": "0.1.0",
   "license": "MIT",
-  "repository": "https://github.com/RyoSogawa/npm-package-boilerplate.git",
-  "bugs": "https://github.com/RyoSogawa/npm-package-boilerplate/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/RyoSogawa/react-resizable-layout.git"
+  },
+  "bugs": "https://github.com/RyoSogawa/react-resizable-layout/issues",
   "homepage": "https://sgw-blog.vercel.app/",
   "keywords": [
-    "boilerplate",
-    "typescript"
+    "react",
+    "component",
+    "dnd",
+    "resize"
   ],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

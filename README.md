@@ -1,52 +1,19 @@
-# npm-package-boilerplate
+# react-resizable-layout
 
-A simple boilerplate for npm package with TypeScript.
+Lightweight React component for resizable layout with Drag and Drop.
 
-## Dependencies
-- Node.js 16.13.0
-- TypeScript 4.5.4
-- eslint
-- prettier
-- jest
-  - @swc/jest
-
-
-## Getting started
-### Installation
-Clone this repository:
-```
-git clone git@github.com:RyoSogawa/npm-package-boilerplate.git
-``` 
-
-Open the directory and npm install:
-```
-cd npm-package-boilerplate
-yarn
-```
-
-(Optional) Remove boilerplate data and commit:
-```
-rm -rf .git && git init && git add . && git commit -m "Initial commit"
-```
-
-## Reference 
-https://github.com/hebertcisco/ts-npm-package-boilerplate
-
-
-# Template
-<!--[![npm version](https://badge.fury.io/js/<PACKAGE_NAME>.svg)](http://badge.fury.io/js/<PACKAGE_NAME>)-->
+[![npm version](https://badge.fury.io/js/react-resizable-layout.svg)](http://badge.fury.io/js/react-resizable-layout)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
 ## Installation
 Install from npm:
 ```
 # Using npm
-npm install <PACKAGE_NAME>
+npm install react-resizable-layout
 
 # Using Yarn
-yarn add <PACKAGE_NAME>
+yarn add react-resizable-layout
 ```
-
 
 ## Usage
 
