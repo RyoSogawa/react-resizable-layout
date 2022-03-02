@@ -8,7 +8,11 @@
     "pretty": true,
     "newLine": "lf",
     "outDir": "dist",
-    "rootDir": "src"
+    "allowJs": true,
+    "rootDir": "src",
+    "lib": ["dom", "es2017"],
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src/**/*"]
 }
