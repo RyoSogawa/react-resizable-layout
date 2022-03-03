@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "commonJs",
+    "module": "es2015",
     "strict": true,
     "skipLibCheck": true,
     "declaration": true,
@@ -9,10 +9,11 @@
     "newLine": "lf",
     "outDir": "dist",
     "allowJs": true,
-    "rootDir": "src",
+    "rootDir": ".",
     "lib": ["dom", "es2017"],
     "jsx": "react",
     "allowSyntheticDefaultImports": true
   },
+  "exclude": ["stories"],
   "include": ["src/**/*"]
 }
