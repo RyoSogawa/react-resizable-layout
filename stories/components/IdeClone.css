@@ -1,0 +1,47 @@
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.shrink-0 {
+  flex-shrink: 0;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+.bg-darker {
+  background-color: #202020;
+}
+
+.bg-dark {
+  background-color: #2D3032;
+}
+
+.font-mono {
+  font-family: monospace;
+}
+
+.color-white {
+  color: white;
+}
+
+.contents {
+  display: grid;
+  place-items: center;
+  transition: filter 0.2s ease-out, background-color 0.2s ease-out;
+  font-size: 16px;
+}
+
+.dragging {
+  filter: blur(5px);
+  background-color: #555555;
+}
