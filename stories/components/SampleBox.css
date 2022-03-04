@@ -1,0 +1,13 @@
+.sample-box{
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.sample-box.sample-box--blue{
+  background-color: #f0f9ff;
+}
+
+.sample-box.sample-box--red{
+  background-color: #fff1f2;
+}
