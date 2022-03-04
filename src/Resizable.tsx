@@ -33,6 +33,14 @@ export interface ResizableProps {
    */
   reverse?: boolean
   /**
+   * callback when border position changes start
+   */
+  onResizeStart?: (position: number) => void
+  /**
+   * callback when border position changes end
+   */
+  onResizeEnd?: (position: number) => void
+  /**
    * callback children
    * @param {ResizableChildrenProps} props
    */
@@ -45,6 +53,8 @@ const Resizable = ({
   min = 0,
   max = Infinity,
   reverse,
+  onResizeStart,
+  onResizeEnd,
   children,
 }: ResizableProps): JSX.Element => {
   const isResizing = useRef(false)
@@ -75,6 +85,7 @@ const Resizable = ({
     isResizing.current = true
     document.addEventListener('mousemove', handleMousemove)
     document.addEventListener('mouseup', handleMouseup)
+    onResizeStart && onResizeStart(position)
   }, [])
 
   const handleMouseup = useCallback(e => {
@@ -82,6 +93,7 @@ const Resizable = ({
     isResizing.current = false
     document.removeEventListener('mousemove', handleMousemove)
     document.removeEventListener('mouseup', handleMouseup)
+    onResizeEnd && onResizeEnd(position)
   }, [])
 
   return children({

@@ -1,7 +1,7 @@
 import React from 'react'
 import './SampleBox.css'
 
-const SampleBox = ({ width, height, theme, size }: any) => {
+const SampleBox = ({ width, height, theme, size, text }: any) => {
   const additionalClass =
     theme === 'blue'
       ? 'sample-box--blue'
@@ -17,7 +17,7 @@ const SampleBox = ({ width, height, theme, size }: any) => {
         height,
       }}
     >
-      Drag center bar to resize
+      {text || 'Drag center bar to resize'}
       <br />
       {size && `(currentSize : ${size}px)`}
     </div>
