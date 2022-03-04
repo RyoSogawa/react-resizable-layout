@@ -12,7 +12,8 @@
     "rootDir": ".",
     "lib": ["dom", "es2017"],
     "jsx": "react",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "Node"
   },
   "exclude": ["stories"],
   "include": ["src/**/*"]
