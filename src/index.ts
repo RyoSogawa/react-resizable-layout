@@ -15,6 +15,10 @@ export type Resizable = {
    */
   position: number
   /**
+   * whether the border is dragging
+   */
+  isDragging: boolean
+  /**
    * props for drag bar
    */
   dragBarProps: DragBarProps

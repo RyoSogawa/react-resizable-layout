@@ -11,6 +11,7 @@ const useResizable = ({
   onResizeEnd,
 }: UseResizableProps): Resizable => {
   const isResizing = useRef(false)
+  const [isDragging, setIsDragging] = useState(false)
   const [position, setPosition] = useState(Math.max(initial, min))
 
   const handleMousemove = useCallback(e => {
@@ -36,6 +37,7 @@ const useResizable = ({
   const handleMousedown = useCallback(e => {
     e.stopPropagation()
     isResizing.current = true
+    setIsDragging(true)
     document.addEventListener('mousemove', handleMousemove)
     document.addEventListener('mouseup', handleMouseup)
     onResizeStart && onResizeStart()
@@ -44,6 +46,7 @@ const useResizable = ({
   const handleMouseup = useCallback(e => {
     e.stopPropagation()
     isResizing.current = false
+    setIsDragging(false)
     document.removeEventListener('mousemove', handleMousemove)
     document.removeEventListener('mouseup', handleMouseup)
     onResizeEnd && onResizeEnd()
@@ -51,7 +54,10 @@ const useResizable = ({
 
   return {
     position,
-    dragBarProps: { onMouseDown: handleMousedown },
+    isDragging,
+    dragBarProps: {
+      onMouseDown: handleMousedown,
+    },
   }
 }
 

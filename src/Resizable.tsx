@@ -11,7 +11,7 @@ const Resizable = ({
   onResizeEnd,
   children,
 }: ResizableProps): JSX.Element => {
-  const { position, dragBarProps } = useResizable({
+  const resizable = useResizable({
     axis,
     initial,
     min,
@@ -21,10 +21,7 @@ const Resizable = ({
     onResizeEnd,
   })
 
-  return children({
-    position,
-    dragBarProps,
-  })
+  return children(resizable)
 }
 
 export default Resizable
