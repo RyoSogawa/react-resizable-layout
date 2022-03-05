@@ -10,13 +10,13 @@ export default {
 } as ComponentMeta<typeof Resizable>
 
 const Template: ComponentStory<typeof Resizable> = props => {
-  const [dragging, setDragging] = useState(false)
+  const [date, setDate] = useState<Date | null>(null)
 
   return (
     <Resizable
       {...props}
-      onResizeStart={() => setDragging(true)}
-      onResizeEnd={() => setDragging(false)}
+      onResizeStart={() => setDate(new Date())}
+      onResizeEnd={() => alert(`You dragged!`)}
     >
       {({ position: x, dragBarProps }) => (
         <div style={{ display: 'flex', height: '100vh' }}>
@@ -24,13 +24,13 @@ const Template: ComponentStory<typeof Resizable> = props => {
             theme={'blue'}
             width={x}
             size={x}
-            text={dragging && 'dragging...'}
+            text={date && 'dragging from ' + date.toISOString()}
           />
           <SampleDragBar {...dragBarProps} />
           <SampleBox
             theme={'red'}
             width={`calc(100% - ${x}px)`}
-            text={dragging && 'dragging...'}
+            text={date && 'dragging from ' + date.toISOString()}
           />
         </div>
       )}
