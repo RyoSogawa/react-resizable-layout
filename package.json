@@ -1,6 +1,6 @@
 {
   "name": "react-resizable-layout",
-  "description": "Lightweight React component for resizable layout with Drag and Drop.",
+  "description": "Lightweight headless React component and hook for resizable layout with Drag and Drop.",
   "author": "RyoSogawa",
   "version": "0.1.0",
   "license": "MIT",
@@ -8,7 +8,9 @@
     "type": "git",
     "url": "git+ssh://git@github.com/RyoSogawa/react-resizable-layout.git"
   },
-  "bugs": "https://github.com/RyoSogawa/react-resizable-layout/issues",
+  "bugs": {
+    "url": "https://github.com/RyoSogawa/react-resizable-layout/issues"
+  },
   "homepage": "https://sgw-blog.vercel.app/",
   "keywords": [
     "react",
