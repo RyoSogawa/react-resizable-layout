@@ -38,7 +38,7 @@ const useResizable = ({
     isResizing.current = true
     document.addEventListener('mousemove', handleMousemove)
     document.addEventListener('mouseup', handleMouseup)
-    onResizeStart && onResizeStart(position)
+    onResizeStart && onResizeStart()
   }, [])
 
   const handleMouseup = useCallback(e => {
@@ -46,7 +46,7 @@ const useResizable = ({
     isResizing.current = false
     document.removeEventListener('mousemove', handleMousemove)
     document.removeEventListener('mouseup', handleMouseup)
-    onResizeEnd && onResizeEnd(position)
+    onResizeEnd && onResizeEnd()
   }, [])
 
   return {
