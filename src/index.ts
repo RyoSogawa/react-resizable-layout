@@ -7,7 +7,9 @@ export default Resizable
 
 export { useResizable }
 
-export interface UseResizable {
+export type DragBarProps = React.HTMLProps<HTMLDivElement>
+
+export type Resizable = {
   /**
    * border position
    */
@@ -15,10 +17,10 @@ export interface UseResizable {
   /**
    * props for drag bar
    */
-  dragBarProps: React.HTMLProps<HTMLDivElement>
+  dragBarProps: DragBarProps
 }
 
-export interface UseResizableProps {
+export type UseResizableProps = {
   /**
    * direction of resizing
    */
@@ -49,9 +51,9 @@ export interface UseResizableProps {
   onResizeEnd?: (position: number) => void
 }
 
-export interface ResizableProps extends UseResizableProps {
+export type ResizableProps = UseResizableProps & {
   /**
    * callback children
    */
-  children: (props: UseResizable) => JSX.Element
+  children: (props: Resizable) => JSX.Element
 }

@@ -1,5 +1,5 @@
 import { useCallback, useRef, useState } from 'react'
-import type { UseResizable, UseResizableProps } from './index'
+import type { Resizable, UseResizableProps } from './index'
 
 const useResizable = ({
   axis,
@@ -9,7 +9,7 @@ const useResizable = ({
   reverse,
   onResizeStart,
   onResizeEnd,
-}: UseResizableProps): UseResizable => {
+}: UseResizableProps): Resizable => {
   const isResizing = useRef(false)
   const [position, setPosition] = useState(Math.max(initial, min))
 
