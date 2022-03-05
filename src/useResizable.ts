@@ -34,23 +34,29 @@ const useResizable = ({
     }
   }, [])
 
-  const handleMousedown = useCallback(e => {
-    e.stopPropagation()
-    isResizing.current = true
-    setIsDragging(true)
-    document.addEventListener('mousemove', handleMousemove)
-    document.addEventListener('mouseup', handleMouseup)
-    onResizeStart && onResizeStart()
-  }, [])
+  const handleMousedown = useCallback(
+    e => {
+      e.stopPropagation()
+      isResizing.current = true
+      setIsDragging(true)
+      document.addEventListener('mousemove', handleMousemove)
+      document.addEventListener('mouseup', handleMouseup)
+      onResizeStart && onResizeStart()
+    },
+    [onResizeStart]
+  )
 
-  const handleMouseup = useCallback(e => {
-    e.stopPropagation()
-    isResizing.current = false
-    setIsDragging(false)
-    document.removeEventListener('mousemove', handleMousemove)
-    document.removeEventListener('mouseup', handleMouseup)
-    onResizeEnd && onResizeEnd()
-  }, [])
+  const handleMouseup = useCallback(
+    e => {
+      e.stopPropagation()
+      isResizing.current = false
+      setIsDragging(false)
+      document.removeEventListener('mousemove', handleMousemove)
+      document.removeEventListener('mouseup', handleMouseup)
+      onResizeEnd && onResizeEnd()
+    },
+    [onResizeEnd]
+  )
 
   return {
     position,
