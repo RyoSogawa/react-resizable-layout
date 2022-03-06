@@ -1,7 +1,7 @@
 import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import Resizable from '../src/Resizable'
-import SampleDragBar from './components/SampleDragBar'
+import SampleSplitter from './components/SampleSplitter'
 import SampleBox from './components/SampleBox'
 
 export default {
@@ -11,7 +11,7 @@ export default {
 
 const Template: ComponentStory<typeof Resizable> = props => (
   <Resizable {...props}>
-    {({ position: y, dragBarProps }) => (
+    {({ position: y, splitterProps }) => (
       <div
         style={{
           display: 'flex',
@@ -20,7 +20,7 @@ const Template: ComponentStory<typeof Resizable> = props => (
         }}
       >
         <SampleBox height={`calc(100% - ${y}px)`} theme={'blue'} />
-        <SampleDragBar dir={'horizontal'} {...dragBarProps} />
+        <SampleSplitter dir={'horizontal'} {...splitterProps} />
         <SampleBox height={y} theme={'red'} size={y} />
       </div>
     )}

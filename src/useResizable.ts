@@ -61,7 +61,7 @@ const useResizable = ({
   return {
     position,
     isDragging,
-    dragBarProps: {
+    splitterProps: {
       onMouseDown: handleMousedown,
     },
   }

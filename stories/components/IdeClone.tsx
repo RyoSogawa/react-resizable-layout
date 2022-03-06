@@ -1,13 +1,13 @@
 import React from 'react'
 import './IdeClone.css'
-import SampleDragBar from './SampleDragBar'
+import SampleSplitter from './SampleSplitter'
 import { useResizable } from '../../src'
 
 const IdeClone = (): JSX.Element => {
   const {
     isDragging: isTerminalDragging,
     position: terminalH,
-    dragBarProps: terminalDragBarProps,
+    splitterProps: terminalDragBarProps,
   } = useResizable({
     axis: 'y',
     initial: 150,
@@ -17,7 +17,7 @@ const IdeClone = (): JSX.Element => {
   const {
     isDragging: isFileDragging,
     position: fileW,
-    dragBarProps: fileDragBarProps,
+    splitterProps: fileDragBarProps,
   } = useResizable({
     axis: 'x',
     initial: 250,
@@ -26,7 +26,7 @@ const IdeClone = (): JSX.Element => {
   const {
     isDragging: isPluginDragging,
     position: pluginW,
-    dragBarProps: pluginDragBarProps,
+    splitterProps: pluginDragBarProps,
   } = useResizable({
     axis: 'x',
     initial: 200,
@@ -45,10 +45,10 @@ const IdeClone = (): JSX.Element => {
         >
           File Tree
         </div>
-        <SampleDragBar isDragging={isFileDragging} {...fileDragBarProps} />
+        <SampleSplitter isDragging={isFileDragging} {...fileDragBarProps} />
         <div className={'flex grow'}>
           <div className={'grow bg-darker contents'}>Editor</div>
-          <SampleDragBar
+          <SampleSplitter
             isDragging={isPluginDragging}
             {...pluginDragBarProps}
           />
@@ -60,7 +60,7 @@ const IdeClone = (): JSX.Element => {
           </div>
         </div>
       </div>
-      <SampleDragBar
+      <SampleSplitter
         dir={'horizontal'}
         isDragging={isTerminalDragging}
         {...terminalDragBarProps}

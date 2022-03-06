@@ -8,7 +8,7 @@ export { useResizable }
 //
 // Types
 //
-export type DragBarProps = React.HTMLProps<HTMLDivElement>
+export type SplitterProps = React.HTMLProps<HTMLDivElement>
 
 export type Resizable = {
   /**
@@ -22,7 +22,7 @@ export type Resizable = {
   /**
    * props for drag bar
    */
-  dragBarProps: DragBarProps
+  splitterProps: SplitterProps
 }
 
 export type UseResizableProps = {

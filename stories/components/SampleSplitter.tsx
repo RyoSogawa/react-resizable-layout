@@ -1,7 +1,12 @@
 import React from 'react'
-import './SampleDragBar.css'
+import './SampleSplitter.css'
 
-const SampleDragBar = ({ id = 'drag-bar', dir, isDragging, ...props }: any) => {
+const SampleSplitter = ({
+  id = 'drag-bar',
+  dir,
+  isDragging,
+  ...props
+}: any) => {
   return (
     <div
       id={id}
@@ -18,4 +23,4 @@ const SampleDragBar = ({ id = 'drag-bar', dir, isDragging, ...props }: any) => {
   )
 }
 
-export default SampleDragBar
+export default SampleSplitter

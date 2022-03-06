@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import Resizable from '../src/Resizable'
-import SampleDragBar from './components/SampleDragBar'
+import SampleSplitter from './components/SampleSplitter'
 import SampleBox from './components/SampleBox'
 
 export default {
@@ -18,7 +18,7 @@ const Template: ComponentStory<typeof Resizable> = props => {
       onResizeStart={() => setDate(new Date())}
       onResizeEnd={() => alert(`You dragged!`)}
     >
-      {({ position: x, dragBarProps }) => (
+      {({ position: x, splitterProps }) => (
         <div style={{ display: 'flex', height: '100vh' }}>
           <SampleBox
             theme={'blue'}
@@ -26,7 +26,7 @@ const Template: ComponentStory<typeof Resizable> = props => {
             size={x}
             text={date && 'dragging from ' + date.toISOString()}
           />
-          <SampleDragBar {...dragBarProps} />
+          <SampleSplitter {...splitterProps} />
           <SampleBox
             theme={'red'}
             width={`calc(100% - ${x}px)`}
