@@ -1,12 +1,13 @@
 import React from 'react'
 import Resizable from './Resizable'
-
 import useResizable from './useResizable'
 
 export default Resizable
-
 export { useResizable }
 
+//
+// Types
+//
 export type DragBarProps = React.HTMLProps<HTMLDivElement>
 
 export type Resizable = {
