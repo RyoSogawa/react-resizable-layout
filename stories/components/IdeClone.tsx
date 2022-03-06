@@ -45,10 +45,13 @@ const IdeClone = (): JSX.Element => {
         >
           File Tree
         </div>
-        <SampleDragBar {...fileDragBarProps} />
+        <SampleDragBar isDragging={isFileDragging} {...fileDragBarProps} />
         <div className={'flex grow'}>
           <div className={'grow bg-darker contents'}>Editor</div>
-          <SampleDragBar {...pluginDragBarProps} />
+          <SampleDragBar
+            isDragging={isPluginDragging}
+            {...pluginDragBarProps}
+          />
           <div
             className={cn('shrink-0 contents', isPluginDragging && 'dragging')}
             style={{ width: pluginW }}
@@ -57,7 +60,11 @@ const IdeClone = (): JSX.Element => {
           </div>
         </div>
       </div>
-      <SampleDragBar dir={'horizontal'} {...terminalDragBarProps} />
+      <SampleDragBar
+        dir={'horizontal'}
+        isDragging={isTerminalDragging}
+        {...terminalDragBarProps}
+      />
       <div
         className={cn(
           'shrink-0 bg-darker contents',

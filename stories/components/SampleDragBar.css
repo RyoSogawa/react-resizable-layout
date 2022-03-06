@@ -6,6 +6,7 @@
   transition: background-color 0.15s 0.15s ease-in-out;
 }
 
+.sample-drag-bar.sample-drag-bar--dragging,
 .sample-drag-bar:hover{
   background-color: #63B3ED;
 }
