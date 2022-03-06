@@ -37,7 +37,11 @@ const IdeClone = (): JSX.Element => {
   const cn = (...args: any[]) => args.filter(Boolean).join(' ')
 
   return (
-    <div className={'flex flex-column h-screen bg-dark font-mono color-white'}>
+    <div
+      className={
+        'flex flex-column h-screen bg-dark font-mono color-white overflow-hidden'
+      }
+    >
       <div className={'flex grow'}>
         <div
           className={cn('shrink-0 contents', isFileDragging && 'dragging')}

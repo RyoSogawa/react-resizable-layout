@@ -17,6 +17,7 @@ const Template: ComponentStory<typeof Resizable> = props => (
           display: 'flex',
           flexDirection: 'column',
           height: '100vh',
+          overflow: 'hidden',
         }}
       >
         <SampleBox height={`calc(100% - ${y}px)`} theme={'blue'} />

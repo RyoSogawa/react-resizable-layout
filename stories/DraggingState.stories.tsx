@@ -12,7 +12,7 @@ export default {
 const Template: ComponentStory<typeof Resizable> = props => (
   <Resizable {...props}>
     {({ position: x, isDragging, splitterProps }) => (
-      <div style={{ display: 'flex', height: '100vh' }}>
+      <div style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
         <SampleBox
           theme={'blue'}
           width={x}

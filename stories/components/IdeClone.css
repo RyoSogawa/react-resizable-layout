@@ -34,6 +34,10 @@
   color: white;
 }
 
+.overflow-hidden {
+  overflow: hidden;
+}
+
 .contents {
   display: grid;
   place-items: center;
