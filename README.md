@@ -8,7 +8,7 @@ Headless React component and hook for resizable layout.
 
 - 📦Lightweight
 - 🕳Headless 
-- 🤏Drag and Drop
+- 🤏Drag and Drop Support
  
 ## Installation
 Install from npm:
@@ -24,10 +24,10 @@ yarn add react-resizable-layout
 ### `Resizable` component
 ```tsx
 <Resizable  axis={'x'}>
-    {({ position, dragBarProps }) => (
+    {({ position, splitterProps }) => (
       <div>
         <div style={{width: position}} />
-        <DragBar {...dragBarProps} />
+        <YourSplitterComponent {...splitterProps} />
         <div />
       </div>
     )}
@@ -37,14 +37,14 @@ yarn add react-resizable-layout
 ### `useResizable` hook
 ```tsx
 const Component = () => {
-  const {position, dragBarProps} = useResizable({
+  const {position, splitterProps} = useResizable({
     axis: 'x',
   })
   
   return (
     <div>
       <div style={{width: position}} />
-      <DragBar {...dragBarProps} />
+      <YourSplitterComponent {...splitterProps} />
       <div />
     </div>
   )
@@ -52,16 +52,25 @@ const Component = () => {
 ```
 
 ## Configuration
-### Props
-| Name          | Type       | Default  | Required   | Description              |
-|---------------|------------|----------|------------|--------------------------|
-| axis          | 'x' or 'y' | -        | ◯          | resize direction         |
-| initial       | number     | 0        | -          | initial size             |
-| min           | number     | 0        | -          | minimum size             |
-| max           | number     | Infinity | -          | maximum size             |
-| reverse       | boolean    | false    | -          | reverse direction        |
-| onResizeStart | function   | -        | -          | callback on resize start |
-| onResizeEnd   | function   | -        | -          | callback on resize end   |
+### Common Props
+| Name          | Type       | Default  | Required   | Description                                       |
+|---------------|------------|----------|------------|---------------------------------------------------|
+| axis          | 'x' or 'y' | -        | ◯          | Resize direction                                  |
+| initial       | number     | 0        | -          | Initial size                                      |
+| min           | number     | 0        | -          | Minimum size                                      |
+| max           | number     | Infinity | -          | Maximum size                                      |
+| reverse       | boolean    | false    | -          | If true, calculates the size of the opposite side |
+| onResizeStart | function   | -        | -          | Callback on resize start                          |
+| onResizeEnd   | function   | -        | -          | Callback on resize end                            |
+
+### `Resizable` component children args
+`useResizable` hook returns same.
+ 
+| Name          | Type    | Description                       |
+|---------------|---------|-----------------------------------|
+| position      | number  | Splitter's position               |
+| isDragging    | boolean | If dragging then true             |
+| splitterProps | object  | Splitter's props like onMouseDown |
 
 
 ## Contribution
