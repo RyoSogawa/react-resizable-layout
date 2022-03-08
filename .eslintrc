@@ -15,8 +15,7 @@
   "env": {
     "browser": true,
     "node": true,
-    "es6": true,
-    "jest": true
+    "es6": true
   },
   "parserOptions": {
     "sourceType": "module",
@@ -60,7 +59,8 @@
   "overrides": [
     {
       "files": [
-        "*.test.ts"
+        "*.test.ts",
+        "*.test.tsx"
       ],
       "rules": {
         "max-lines": "off",
