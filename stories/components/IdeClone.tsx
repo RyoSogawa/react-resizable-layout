@@ -1,5 +1,4 @@
 import React from 'react'
-import './IdeClone.css'
 import SampleSplitter from './SampleSplitter'
 import { useResizable } from '../../src'
 

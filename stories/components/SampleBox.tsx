@@ -1,5 +1,4 @@
 import React from 'react'
-import './SampleBox.css'
 
 const SampleBox = ({ id, width, height, theme, size, text }: any) => {
   const additionalClass =

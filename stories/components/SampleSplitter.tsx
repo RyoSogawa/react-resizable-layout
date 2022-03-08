@@ -1,5 +1,4 @@
 import React from 'react'
-import './SampleSplitter.css'
 
 const SampleSplitter = ({
   id = 'drag-bar',
