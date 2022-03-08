@@ -14,13 +14,15 @@ const Template: ComponentStory<typeof Resizable> = props => (
     {({ position: x, isDragging, splitterProps }) => (
       <div style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
         <SampleBox
+          id={'left-block'}
           theme={'blue'}
           width={x}
           size={x}
           text={isDragging && 'Dragging...'}
         />
-        <SampleSplitter {...splitterProps} />
+        <SampleSplitter id={'splitter'} {...splitterProps} />
         <SampleBox
+          id={'right-block'}
           theme={'red'}
           width={`calc(100% - ${x}px)`}
           text={isDragging && 'Dragging...'}

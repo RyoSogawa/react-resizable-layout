@@ -20,9 +20,13 @@ const Template: ComponentStory<typeof Resizable> = props => (
           overflow: 'hidden',
         }}
       >
-        <SampleBox height={y} theme={'blue'} size={y} />
-        <SampleSplitter dir={'horizontal'} {...splitterProps} />
-        <SampleBox height={`calc(100% - ${y}px)`} theme={'red'} />
+        <SampleBox id={'top-block'} height={y} theme={'blue'} size={y} />
+        <SampleSplitter id={'splitter'} dir={'horizontal'} {...splitterProps} />
+        <SampleBox
+          id={'bottom-block'}
+          height={`calc(100% - ${y}px)`}
+          theme={'red'}
+        />
       </div>
     )}
   </Resizable>

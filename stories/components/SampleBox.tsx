@@ -1,7 +1,7 @@
 import React from 'react'
 import './SampleBox.css'
 
-const SampleBox = ({ width, height, theme, size, text }: any) => {
+const SampleBox = ({ id, width, height, theme, size, text }: any) => {
   const additionalClass =
     theme === 'blue'
       ? 'sample-box--blue'
@@ -11,6 +11,8 @@ const SampleBox = ({ width, height, theme, size, text }: any) => {
 
   return (
     <div
+      id={id}
+      data-testid={id}
       className={['sample-box', additionalClass].filter(Boolean).join(' ')}
       style={{
         width,
