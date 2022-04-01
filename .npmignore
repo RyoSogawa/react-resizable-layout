@@ -1,9 +1,13 @@
-.husky
+.github/
+.husky/
+.idea/
+.storybook/
 src/
+stories/
 tests/
 
 .eslintignore
-.eslintrc.cjs
+.eslintrc
 .gitignore
 .node-version
 .prettierignore
