@@ -27,7 +27,6 @@
     "lint": "eslint src --ext .js,.ts,.jsx,.tsx",
     "lint:fix": "yarn lint --fix",
     "test": "tsc --noEmit && yarn lint",
-    "test:w": "jest --watchAll --notify",
     "prepublishOnly": "yarn test && yarn build",
     "preversion": "yarn lint",
     "version": "yarn format && git add -A src",
