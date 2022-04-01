@@ -2,8 +2,7 @@
 .husky/
 .idea/
 .storybook/
-src/
-stories/
+src/stories/
 tests/
 
 .eslintignore
