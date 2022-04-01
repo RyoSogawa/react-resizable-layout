@@ -16,6 +16,8 @@
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "Node"
   },
-  "exclude": ["stories"],
+  "exclude": [
+    "src/stories"
+  ],
   "include": ["src/**/*"]
 }

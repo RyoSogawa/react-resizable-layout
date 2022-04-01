@@ -1,6 +1,6 @@
 import React from 'react'
 import SampleSplitter from './SampleSplitter'
-import { useResizable } from '../../src'
+import { useResizable } from '../../index'
 
 const IdeClone = (): JSX.Element => {
   const {
