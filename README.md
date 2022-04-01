@@ -5,6 +5,10 @@
 
 Headless React component and hook for resizable layout.
 
+Warning! 
+This is a very early release.
+NOT WELL TESTED.
+
 [Storybook Demo](https://ryosogawa.github.io/react-resizable-layout/)
 
 ## Features
