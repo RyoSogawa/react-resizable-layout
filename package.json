@@ -18,15 +18,17 @@
     "dnd",
     "resize"
   ],
-  "main": "dist/src/index.js",
-  "types": "dist/src/index.d.ts",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "types": "./lib/esm/index.d.ts",
   "files": [
-    "dist",
+    "lib",
     "src"
   ],
-  "type": "module",
   "scripts": {
-    "build": "tsc",
+    "build": "yarn build:esm && yarn build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir lib/cjs",
     "format": "prettier --write \"src/**/*.(js|ts|jsx|tsx)\"",
     "lint": "eslint src --ext .js,.ts,.jsx,.tsx",
     "lint:fix": "yarn lint --fix",
