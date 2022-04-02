@@ -6,6 +6,8 @@
 
 Headless React component and hook for resizable layout.
 
+[![Image from Gyazo](https://i.gyazo.com/5c0789b111670055fd3f28bb713399f0.gif)](https://gyazo.com/5c0789b111670055fd3f28bb713399f0)
+
 [![Edit react-resizable-layout](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-resizable-layout-jy3vhk?fontsize=14&hidenavigation=1&theme=dark)
 
 [Storybook Demo](https://ryosogawa.github.io/react-resizable-layout/)
