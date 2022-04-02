@@ -1,4 +1,5 @@
 import React from 'react'
+import { cn } from '../utils/cn'
 
 const SampleBox = ({ id, width, height, theme, size, text }: any) => {
   const additionalClass =
@@ -12,7 +13,7 @@ const SampleBox = ({ id, width, height, theme, size, text }: any) => {
     <div
       id={id}
       data-testid={id}
-      className={['sample-box', additionalClass].filter(Boolean).join(' ')}
+      className={cn('sample-box', additionalClass)}
       style={{
         width,
         height,

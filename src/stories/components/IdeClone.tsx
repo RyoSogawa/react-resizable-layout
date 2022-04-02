@@ -1,6 +1,7 @@
 import React from 'react'
 import SampleSplitter from './SampleSplitter'
 import { useResizable } from '../../index'
+import { cn } from '../utils/cn'
 
 const IdeClone = (): JSX.Element => {
   const {
@@ -32,8 +33,6 @@ const IdeClone = (): JSX.Element => {
     min: 50,
     reverse: true,
   })
-
-  const cn = (...args: any[]) => args.filter(Boolean).join(' ')
 
   return (
     <div
