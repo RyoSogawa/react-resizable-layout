@@ -14,9 +14,12 @@
   "homepage": "https://github.com/RyoSogawa/react-resizable-layout",
   "keywords": [
     "react",
-    "component",
+    "react-hooks",
+    "react-component",
+    "headless",
     "dnd",
-    "resize"
+    "resize",
+    "typescript"
   ],
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
