@@ -25,9 +25,6 @@
   "main": "./lib/index.js",
   "module": "./lib/index.module.js",
   "types": "./lib/index.d.ts",
-  "files": [
-    "lib"
-  ],
   "scripts": {
     "prebuild": "rimraf ./lib",
     "build": "microbundle --jsx React.createElement --no-sourcemap --compress",
