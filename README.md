@@ -31,24 +31,17 @@ yarn add react-resizable-layout
 ```
 
 ## Usage
-
-First, import the component:
-
-```ts
-import Resizable from 'react-resizable-layout';
-// or
-import { useResizable } from 'react-resizable-layout';
-```
-
 ### `Resizable` component
 
 ```tsx
+import Resizable from 'react-resizable-layout';
+
 <Resizable axis={'x'}>
   {({ position, splitterProps }) => (
-    <div>
-      <div style={{ width: position }}/>
-      <YourSplitterComponent {...splitterProps} />
-      <div/>
+    <div className="wrapper">
+      <div className="left-block" style={{ width: position }}/>
+        <YourSplitterComponent {...splitterProps} />
+      <div className="right-block" />
     </div>
   )}
 </Resizable>
@@ -57,16 +50,18 @@ import { useResizable } from 'react-resizable-layout';
 ### `useResizable` hook
 
 ```tsx
+import { useResizable } from 'react-resizable-layout';
+
 const Component = () => {
   const { position, splitterProps } = useResizable({
     axis: 'x',
   })
 
   return (
-    <div>
-      <div style={{ width: position }}/>
-      <YourSplitterComponent {...splitterProps} />
-      <div/>
+    <div className="wrapper">
+      <div className="left-block" style={{ width: position }}/>
+        <YourSplitterComponent {...splitterProps} />
+      <div className="right-block" />
     </div>
   )
 }
