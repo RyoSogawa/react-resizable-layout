@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 import type { Resizable, UseResizableProps } from './index'
 
 const useResizable = ({
@@ -14,7 +14,7 @@ const useResizable = ({
   const [isDragging, setIsDragging] = useState(false)
   const [position, setPosition] = useState(Math.max(initial, min))
 
-  const handleMousemove = useCallback(e => {
+  const handleMousemove = useCallback((e: MouseEvent) => {
     // exit if not resizing
     if (!isResizing.current) return
 
@@ -34,7 +34,7 @@ const useResizable = ({
     }
   }, [])
 
-  const handleMousedown = useCallback(
+  const handleMousedown = useCallback<React.MouseEventHandler<HTMLDivElement>>(
     e => {
       e.stopPropagation()
       isResizing.current = true
@@ -47,7 +47,7 @@ const useResizable = ({
   )
 
   const handleMouseup = useCallback(
-    e => {
+    (e: MouseEvent) => {
       e.stopPropagation()
       isResizing.current = false
       setIsDragging(false)
