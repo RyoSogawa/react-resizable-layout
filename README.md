@@ -39,8 +39,8 @@ import Resizable from 'react-resizable-layout';
 <Resizable axis={'x'}>
   {({ position, splitterProps }) => (
     <div className="wrapper">
-      <div className="left-block" style={{ width: position }}/>
-        <YourSplitterComponent {...splitterProps} />
+      <div className="left-block" style={{ width: position }} />
+      <YourSplitterComponent {...splitterProps} />
       <div className="right-block" />
     </div>
   )}
@@ -59,8 +59,8 @@ const Component = () => {
 
   return (
     <div className="wrapper">
-      <div className="left-block" style={{ width: position }}/>
-        <YourSplitterComponent {...splitterProps} />
+      <div className="left-block" style={{ width: position }} />
+      <YourSplitterComponent {...splitterProps} />
       <div className="right-block" />
     </div>
   )
