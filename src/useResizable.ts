@@ -49,19 +49,19 @@ const useResizable = ({
       setIsDragging(false)
       document.removeEventListener('mousemove', handleMousemove)
       document.removeEventListener('mouseup', handleMouseup)
-      onResizeEnd && onResizeEnd()
+      if (onResizeEnd) onResizeEnd()
     },
     [handleMousemove, onResizeEnd]
   )
 
-  const handleMousedown = useCallback<React.MouseEventHandler<HTMLDivElement>>(
+  const handleMousedown = useCallback<React.MouseEventHandler>(
     e => {
       e.stopPropagation()
       isResizing.current = true
       setIsDragging(true)
       document.addEventListener('mousemove', handleMousemove)
       document.addEventListener('mouseup', handleMouseup)
-      onResizeStart && onResizeStart()
+      if (onResizeStart) onResizeStart()
     },
     [handleMousemove, handleMouseup, onResizeStart]
   )
