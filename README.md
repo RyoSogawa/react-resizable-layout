@@ -17,6 +17,8 @@ Headless React component and hook for resizable layout.
 - 📦 Lightweight
 - 🕳 Headless
 - 🤏 Drag and Drop Support
+- ⌨️ Keyboard Support
+- 🫙 Zero Dependencies
 
 ## Installation
 
@@ -71,15 +73,17 @@ const Component = () => {
 
 ### Common Props
 
-| Name          | Type       | Default  | Required   | Description                                    |
-|---------------|------------|----------|------------|------------------------------------------------|
-| axis          | 'x' or 'y' | -        | ◯          | Resize direction                               |
-| initial       | number     | 0        | -          | Initial size                                   |
-| min           | number     | 0        | -          | Minimum size                                   |
-| max           | number     | Infinity | -          | Maximum size                                   |
-| reverse       | boolean    | false    | -          | If true, returns position of the opposite side |
-| onResizeStart | function   | -        | -          | Callback on resize start                       |
-| onResizeEnd   | function   | -        | -          | Callback on resize end                         |
+| Name          | Type       | Default  | Required | Description                                                               |
+|---------------|------------|----------|----------|---------------------------------------------------------------------------|
+| axis          | 'x' or 'y' | -        | ◯        | Resize direction                                                          |
+| initial       | number     | 0        | -        | Initial size                                                              |
+| min           | number     | 0        | -        | Minimum size                                                              |
+| max           | number     | Infinity | -        | Maximum size                                                              |
+| reverse       | boolean    | false    | -        | If true, returns position of the opposite side                            |
+| step          | number     | 10       | -        | Pixel steps when operating with keyboard                                  |
+| shiftStep     | number     | 50       | -        | Pixel steps when operating with keyboard while holding down the shift key |
+| onResizeStart | function   | -        | -        | Callback on resize start                                                  |
+| onResizeEnd   | function   | -        | -        | Callback on resize end                                                    |
 
 ### `Resizable` component children args
 
@@ -90,6 +94,16 @@ const Component = () => {
 | position      | number  | Splitter's position (Width for 'x' axis, height for 'y' axis) |
 | isDragging    | boolean | If dragging then true                                         |
 | splitterProps | object  | Splitter's props like onMouseDown                             |
+
+## About keyboard support
+The following keyboard operations are supported.
+
+| Key                               | Operation                                  |
+|-----------------------------------|--------------------------------------------|
+| Arrow (`↑`,`→`,`↓`,`←`)           | Move the splitter by 10px (default)        |
+| `Shift` + Arrow (`↑`,`→`,`↓`,`←`) | Move the splitter by 50px (default)        |
+| `Enter`                           | Reset the splitter to the initial position |
+
 
 ## Contribution
 
