@@ -2,6 +2,9 @@
 
 [![npm version](https://badge.fury.io/js/react-resizable-layout.svg)](http://badge.fury.io/js/react-resizable-layout)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
+[![minziggped size](https://badgen.net/bundlephobia/minzip/react-resizable-layout)](https://bundlephobia.com/package/react-resizable-layout)
+[![dependencies count](https://badgen.net/bundlephobia/dependency-count/react-resizable-layout)](https://bundlephobia.com/package/react-resizable-layout)
+[![tree shaking](https://badgen.net/bundlephobia/tree-shaking/react-resizable-layout)](https://bundlephobia.com/package/react-resizable-layout)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 Headless React component and hook for resizable layout.
