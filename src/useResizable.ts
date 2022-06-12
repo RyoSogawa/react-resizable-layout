@@ -19,36 +19,27 @@ const useResizable = ({
     Math.min(Math.max(initial, min), max)
   )
 
-  const handleMousemove = useCallback((e: MouseEvent) => {
-    // exit if not resizing
-    if (!isResizing.current) return
+  const handleMousemove = useCallback(
+    (e: MouseEvent) => {
+      // exit if not resizing
+      if (!isResizing.current) return
 
-    e.stopPropagation()
-    e.preventDefault() // prevent text selection
-
-    const currentPosition = !reverse
-      ? axis === 'x'
-        ? e.clientX
-        : e.clientY
-      : axis === 'x'
-      ? document.body.offsetWidth - e.clientX
-      : document.body.offsetHeight - e.clientY
-
-    if (min < currentPosition && currentPosition < max) {
-      setPosition(currentPosition)
-    }
-  }, [])
-
-  const handleMousedown = useCallback<React.MouseEventHandler<HTMLDivElement>>(
-    e => {
       e.stopPropagation()
-      isResizing.current = true
-      setIsDragging(true)
-      document.addEventListener('mousemove', handleMousemove)
-      document.addEventListener('mouseup', handleMouseup)
-      onResizeStart && onResizeStart()
+      e.preventDefault() // prevent text selection
+
+      const currentPosition = !reverse
+        ? axis === 'x'
+          ? e.clientX
+          : e.clientY
+        : axis === 'x'
+        ? document.body.offsetWidth - e.clientX
+        : document.body.offsetHeight - e.clientY
+
+      if (min < currentPosition && currentPosition < max) {
+        setPosition(currentPosition)
+      }
     },
-    [onResizeStart]
+    [axis, max, min, reverse]
   )
 
   const handleMouseup = useCallback(
@@ -60,7 +51,19 @@ const useResizable = ({
       document.removeEventListener('mouseup', handleMouseup)
       onResizeEnd && onResizeEnd()
     },
-    [onResizeEnd]
+    [handleMousemove, onResizeEnd]
+  )
+
+  const handleMousedown = useCallback<React.MouseEventHandler<HTMLDivElement>>(
+    e => {
+      e.stopPropagation()
+      isResizing.current = true
+      setIsDragging(true)
+      document.addEventListener('mousemove', handleMousemove)
+      document.addEventListener('mouseup', handleMouseup)
+      onResizeStart && onResizeStart()
+    },
+    [handleMousemove, handleMouseup, onResizeStart]
   )
 
   const handleKeyDown = useCallback<React.KeyboardEventHandler>(
@@ -93,14 +96,16 @@ const useResizable = ({
       if (onResizeEnd) onResizeEnd()
     },
     [
-      step,
+      axis,
+      onResizeStart,
       shiftStep,
-      initial,
+      step,
       reverse,
       position,
-      axis,
+      min,
+      max,
       onResizeEnd,
-      onResizeStart,
+      initial,
     ]
   )
 
