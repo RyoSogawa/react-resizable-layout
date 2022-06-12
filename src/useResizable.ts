@@ -1,5 +1,6 @@
 import React, { useCallback, useRef, useState } from 'react'
 import type { Resizable, UseResizableProps } from './index'
+import { KEYS_AXIS_X, KEYS_AXIS_Y, KEYS_POSITIVE } from './constants'
 
 const useResizable = ({
   axis,
@@ -7,6 +8,8 @@ const useResizable = ({
   min = 0,
   max = Infinity,
   reverse,
+  step = 10,
+  shiftStep = 50,
   onResizeStart,
   onResizeEnd,
 }: UseResizableProps): Resizable => {
@@ -60,11 +63,53 @@ const useResizable = ({
     [onResizeEnd]
   )
 
+  const handleKeyDown = useCallback<React.KeyboardEventHandler>(
+    e => {
+      if (e.key === 'Enter') {
+        setPosition(initial)
+        return
+      } else if (
+        (axis === 'x' && !KEYS_AXIS_X.includes(e.key)) ||
+        (axis === 'y' && !KEYS_AXIS_Y.includes(e.key))
+      ) {
+        return
+      }
+
+      if (onResizeStart) onResizeStart()
+
+      const changeStep = e.shiftKey ? shiftStep : step
+      const reversed = reverse ? -1 : 1
+      const dir = KEYS_POSITIVE.includes(e.key) ? reversed : -1 * reversed
+
+      const newPosition = position + changeStep * dir
+      if (newPosition < min) {
+        setPosition(min)
+      } else if (newPosition > max) {
+        setPosition(max)
+      } else {
+        setPosition(newPosition)
+      }
+
+      if (onResizeEnd) onResizeEnd()
+    },
+    [
+      step,
+      shiftStep,
+      initial,
+      reverse,
+      position,
+      axis,
+      onResizeEnd,
+      onResizeStart,
+    ]
+  )
+
   return {
     position,
     isDragging,
     splitterProps: {
       onMouseDown: handleMousedown,
+      onKeyDown: handleKeyDown,
     },
   }
 }

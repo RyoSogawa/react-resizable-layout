@@ -47,6 +47,11 @@ export type UseResizableProps = {
    */
   reverse?: boolean
   /**
+   * resizing step with keyboard
+   */
+  step?: number
+  shiftStep?: number
+  /**
    * callback when border position changes start
    */
   onResizeStart?: () => void
