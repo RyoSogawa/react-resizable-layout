@@ -12,7 +12,9 @@ const useResizable = ({
 }: UseResizableProps): Resizable => {
   const isResizing = useRef(false)
   const [isDragging, setIsDragging] = useState(false)
-  const [position, setPosition] = useState(Math.max(initial, min))
+  const [position, setPosition] = useState(
+    Math.min(Math.max(initial, min), max)
+  )
 
   const handleMousemove = useCallback((e: MouseEvent) => {
     // exit if not resizing
