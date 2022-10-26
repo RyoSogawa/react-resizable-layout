@@ -3,7 +3,7 @@ import { useCallback, useMemo, useRef, useState } from 'react';
 
 import { KEYS_AXIS_X, KEYS_AXIS_Y, KEYS_POSITIVE } from './constants';
 
-import type { Resizable, UseResizableProps } from './types';
+import type { Resizable, SplitterProps, UseResizableProps } from './types';
 
 const useResizable = ({
   axis,
@@ -21,7 +21,7 @@ const useResizable = ({
   const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState(Math.min(Math.max(initial, min), max));
 
-  const ariaProps = useMemo<React.ComponentPropsWithoutRef<'div'>>(
+  const ariaProps = useMemo<SplitterProps>(
     () => ({
       role: 'separator',
       'aria-valuenow': position,

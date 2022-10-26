@@ -6,10 +6,9 @@ const SampleSplitter = ({ id = 'drag-bar', dir, isDragging, disabled, ...props }
   const [isFocused, setIsFocused] = useState(false);
 
   return (
-    <div
+    <hr
       id={id}
       data-testid={id}
-      // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
       tabIndex={disabled ? -1 : 0}
       className={cn(
         'sample-drag-bar',

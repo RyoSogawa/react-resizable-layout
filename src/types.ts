@@ -1,6 +1,6 @@
 import type React from 'react';
 
-export type SplitterProps = React.ComponentPropsWithoutRef<'div'>;
+export type SplitterProps = React.ComponentPropsWithoutRef<'hr'>;
 
 export type Resizable = {
   /**
