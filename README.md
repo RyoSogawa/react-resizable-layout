@@ -19,6 +19,7 @@ Headless React component and hook for resizable layout.
 
 - 📦 Lightweight
 - 🕳 Headless
+- 🫶🏽 Accessible 
 - 🤏 Drag and Drop Support
 - ⌨️ Keyboard Support
 - 🫙 Zero Dependencies
