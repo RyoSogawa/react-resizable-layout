@@ -1,5 +1,5 @@
 import useResizable from './useResizable'
-import type { ResizableProps } from './index'
+import type { ResizableProps } from './types'
 
 const Resizable = ({
   axis,

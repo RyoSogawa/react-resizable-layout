@@ -1,5 +1,5 @@
 import React, { useCallback, useRef, useState } from 'react'
-import type { Resizable, UseResizableProps } from './index'
+import type { Resizable, UseResizableProps } from './types'
 import { KEYS_AXIS_X, KEYS_AXIS_Y, KEYS_POSITIVE } from './constants'
 
 const useResizable = ({
