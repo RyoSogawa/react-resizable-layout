@@ -1,5 +1,5 @@
 import type React from 'react';
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useMemo, useRef, useState } from 'react';
 
 import { KEYS_AXIS_X, KEYS_AXIS_Y, KEYS_POSITIVE } from './constants';
 
@@ -19,6 +19,17 @@ const useResizable = ({
   const isResizing = useRef(false);
   const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState(Math.min(Math.max(initial, min), max));
+
+  const ariaProps = useMemo<React.ComponentPropsWithoutRef<'div'>>(
+    () => ({
+      role: 'separator',
+      'aria-valuenow': position,
+      'aria-valuemin': min,
+      'aria-valuemax': max,
+      'aria-orientation': axis === 'x' ? 'vertical' : 'horizontal',
+    }),
+    [axis, max, min, position],
+  );
 
   const handleMousemove = useCallback(
     (e: MouseEvent) => {
@@ -107,6 +118,7 @@ const useResizable = ({
     position,
     isDragging,
     splitterProps: {
+      ...ariaProps,
       onMouseDown: handleMousedown,
       onKeyDown: handleKeyDown,
       onDoubleClick: handleDoubleClick,
