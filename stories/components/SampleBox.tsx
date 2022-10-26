@@ -3,8 +3,16 @@ import React from 'react';
 import { cn } from '../utils/cn';
 
 const SampleBox = ({ id, width, height, theme, size, text }: any) => {
-  const additionalClass =
-    theme === 'blue' ? 'sample-box--blue' : theme === 'red' ? 'sample-box--red' : null;
+  const additionalClass = (() => {
+    switch (theme) {
+      case 'blue':
+        return 'sample-box--blue';
+      case 'red':
+        return 'sample-box--red';
+      default:
+        return null;
+    }
+  })();
 
   return (
     <div

@@ -93,6 +93,7 @@ module.exports = {
       rules: {
         'max-lines': 'off',
         'no-console': 'off',
+        'no-alert': 'off',
       },
     },
   ],
