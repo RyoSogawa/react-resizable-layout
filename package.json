@@ -21,13 +21,16 @@
     "resize",
     "typescript"
   ],
+  "files": [
+    "lib"
+  ],
   "source": "./src/index.ts",
   "main": "./lib/index.js",
   "module": "./lib/index.module.js",
   "types": "./lib/index.d.ts",
   "scripts": {
     "prebuild": "rimraf ./lib",
-    "build": "microbundle --jsx React.createElement --no-sourcemap --compress",
+    "build": "microbundle --jsx React.createElement --no-sourcemap --compress --tsconfig ./tsconfig.build.json",
     "format": "prettier --write \"src/**/*.(js|ts|jsx|tsx)\"",
     "lint": "eslint src --ext .js,.ts,.jsx,.tsx",
     "lint:fix": "yarn lint --fix",
