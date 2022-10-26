@@ -1,13 +1,10 @@
-import React from 'react'
-import { cn } from '../utils/cn'
+import React from 'react';
+
+import { cn } from '../utils/cn';
 
 const SampleBox = ({ id, width, height, theme, size, text }: any) => {
   const additionalClass =
-    theme === 'blue'
-      ? 'sample-box--blue'
-      : theme === 'red'
-      ? 'sample-box--red'
-      : null
+    theme === 'blue' ? 'sample-box--blue' : theme === 'red' ? 'sample-box--red' : null;
 
   return (
     <div
@@ -23,7 +20,7 @@ const SampleBox = ({ id, width, height, theme, size, text }: any) => {
       <br />
       {size && `(currentSize : ${size}px)`}
     </div>
-  )
-}
+  );
+};
 
-export default SampleBox
+export default SampleBox;

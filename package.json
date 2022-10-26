@@ -31,8 +31,8 @@
   "scripts": {
     "prebuild": "rimraf ./lib",
     "build": "microbundle --jsx React.createElement --no-sourcemap --compress --tsconfig ./tsconfig.build.json",
-    "format": "prettier --write \"src/**/*.(js|ts|jsx|tsx)\"",
-    "lint": "eslint src --ext .js,.ts,.jsx,.tsx",
+    "format": "prettier --write \"(src|stories)/*.(js|ts|jsx|tsx)\"",
+    "lint": "eslint ./src ./stories",
     "lint:fix": "yarn lint --fix",
     "test": "tsc --noEmit && yarn lint",
     "prepublishOnly": "yarn test && yarn build",
