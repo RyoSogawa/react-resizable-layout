@@ -28,13 +28,12 @@ const useResizable = ({
       e.stopPropagation();
       e.preventDefault(); // prevent text selection
 
-      const currentPosition = !reverse
-        ? axis === 'x'
-          ? e.clientX
-          : e.clientY
-        : axis === 'x'
-        ? document.body.offsetWidth - e.clientX
-        : document.body.offsetHeight - e.clientY;
+      const currentPosition = (() => {
+        if (axis === 'x') {
+          return reverse ? document.body.offsetWidth - e.clientX : e.clientX;
+        }
+        return reverse ? document.body.offsetHeight - e.clientY : e.clientY;
+      })();
 
       if (min < currentPosition && currentPosition < max) {
         setPosition(currentPosition);
