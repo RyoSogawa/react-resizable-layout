@@ -8,7 +8,7 @@ export { useResizable }
 //
 // Types
 //
-export type SplitterProps = React.HTMLProps<HTMLDivElement>
+export type SplitterProps = React.ComponentPropsWithoutRef<'div'>
 
 export type Resizable = {
   /**
