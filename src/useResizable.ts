@@ -99,12 +99,17 @@ const useResizable = ({
     [axis, onResizeStart, shiftStep, step, reverse, position, min, max, onResizeEnd, initial],
   );
 
+  const handleDoubleClick = useCallback<React.MouseEventHandler>(() => {
+    setPosition(initial);
+  }, [initial]);
+
   return {
     position,
     isDragging,
     splitterProps: {
       onMouseDown: handleMousedown,
       onKeyDown: handleKeyDown,
+      onDoubleClick: handleDoubleClick,
     },
   };
 };

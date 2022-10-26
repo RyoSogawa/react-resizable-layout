@@ -108,6 +108,9 @@ The following keyboard operations are supported.
 | `Enter`                           | Reset the splitter to the initial position |
 
 
+## About mouse support
+Double-click on the splitter to return it to its initial position.
+
 ## Contribution
 
 Please feel free to open an issue or make a pull request.
