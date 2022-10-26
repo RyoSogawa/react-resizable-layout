@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import Resizable from '../Resizable'
+import Resizable from '../src/Resizable'
 import SampleSplitter from './components/SampleSplitter'
 import SampleBox from './components/SampleBox'
 
@@ -20,23 +20,22 @@ const Template: ComponentStory<typeof Resizable> = props => (
           overflow: 'hidden',
         }}
       >
-        <SampleBox
-          id={'top-block'}
-          height={`calc(100% - ${y}px)`}
-          theme={'blue'}
-        />
+        <SampleBox id={'top-block'} height={y} theme={'blue'} size={y} />
         <SampleSplitter id={'splitter'} dir={'horizontal'} {...splitterProps} />
-        <SampleBox id={'bottom-block'} height={y} theme={'red'} size={y} />
+        <SampleBox
+          id={'bottom-block'}
+          height={`calc(100% - ${y}px)`}
+          theme={'red'}
+        />
       </div>
     )}
   </Resizable>
 )
 
-export const AxisYReverse = Template.bind({})
-AxisYReverse.args = {
+export const AxisY = Template.bind({})
+AxisY.args = {
   axis: 'y',
   initial: 100,
   min: 50,
   max: 300,
-  reverse: true,
 }

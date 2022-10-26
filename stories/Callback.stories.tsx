@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import Resizable from '../Resizable'
+import Resizable from '../src/Resizable'
 import SampleSplitter from './components/SampleSplitter'
 import SampleBox from './components/SampleBox'
 

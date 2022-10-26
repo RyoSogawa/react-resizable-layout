@@ -1,6 +1,6 @@
-import '../src/stories/style/SampleBox.css'
-import '../src/stories/style/SampleSplitter.css'
-import '../src/stories/style/IdeClone.css'
+import '../stories/style/SampleBox.css'
+import '../stories/style/SampleSplitter.css'
+import '../stories/style/IdeClone.css'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
