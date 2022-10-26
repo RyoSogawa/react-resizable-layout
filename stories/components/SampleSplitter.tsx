@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { cn } from '../utils/cn';
 
-const SampleSplitter = ({ id = 'drag-bar', dir, isDragging, ...props }: any) => {
+const SampleSplitter = ({ id = 'drag-bar', dir, isDragging, disabled, ...props }: any) => {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
@@ -10,11 +10,12 @@ const SampleSplitter = ({ id = 'drag-bar', dir, isDragging, ...props }: any) => 
       id={id}
       data-testid={id}
       // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-      tabIndex={0}
+      tabIndex={disabled ? -1 : 0}
       className={cn(
         'sample-drag-bar',
         dir === 'horizontal' && 'sample-drag-bar--horizontal',
-        (isDragging || isFocused) && 'sample-drag-bar--dragging',
+        !disabled && (isDragging || isFocused) && 'sample-drag-bar--dragging',
+        disabled && 'disabled',
       )}
       onFocus={() => setIsFocused(true)}
       onBlur={() => setIsFocused(false)}

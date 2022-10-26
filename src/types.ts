@@ -23,6 +23,10 @@ export type UseResizableProps = {
    */
   axis: 'x' | 'y';
   /**
+   * if true, cannot resize
+   */
+  disabled?: boolean;
+  /**
    * initial border position
    */
   initial?: number;

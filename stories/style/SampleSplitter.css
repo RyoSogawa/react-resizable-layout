@@ -16,3 +16,10 @@
   width: 100%;
   cursor: row-resize;
 }
+
+.disabled {
+  cursor: not-allowed;
+}
+.disabled:hover {
+  background-color: #d1d5db;
+}

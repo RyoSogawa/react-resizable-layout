@@ -7,6 +7,7 @@ import type { Resizable, UseResizableProps } from './types';
 
 const useResizable = ({
   axis,
+  disabled = false,
   initial = 0,
   min = 0,
   max = Infinity,
@@ -27,14 +28,17 @@ const useResizable = ({
       'aria-valuemin': min,
       'aria-valuemax': max,
       'aria-orientation': axis === 'x' ? 'vertical' : 'horizontal',
+      'aria-disabled': disabled,
     }),
-    [axis, max, min, position],
+    [axis, disabled, max, min, position],
   );
 
   const handleMousemove = useCallback(
     (e: MouseEvent) => {
       // exit if not resizing
       if (!isResizing.current) return;
+
+      if (disabled) return;
 
       e.stopPropagation();
       e.preventDefault(); // prevent text selection
@@ -50,11 +54,13 @@ const useResizable = ({
         setPosition(currentPosition);
       }
     },
-    [axis, max, min, reverse],
+    [axis, disabled, max, min, reverse],
   );
 
   const handleMouseup = useCallback(
     (e: MouseEvent) => {
+      if (disabled) return;
+
       e.stopPropagation();
       isResizing.current = false;
       setIsDragging(false);
@@ -62,11 +68,13 @@ const useResizable = ({
       document.removeEventListener('mouseup', handleMouseup);
       if (onResizeEnd) onResizeEnd();
     },
-    [handleMousemove, onResizeEnd],
+    [disabled, handleMousemove, onResizeEnd],
   );
 
   const handleMousedown = useCallback<React.MouseEventHandler>(
     (e) => {
+      if (disabled) return;
+
       e.stopPropagation();
       isResizing.current = true;
       setIsDragging(true);
@@ -74,11 +82,13 @@ const useResizable = ({
       document.addEventListener('mouseup', handleMouseup);
       if (onResizeStart) onResizeStart();
     },
-    [handleMousemove, handleMouseup, onResizeStart],
+    [disabled, handleMousemove, handleMouseup, onResizeStart],
   );
 
   const handleKeyDown = useCallback<React.KeyboardEventHandler>(
     (e) => {
+      if (disabled) return;
+
       if (e.key === 'Enter') {
         setPosition(initial);
         return;
@@ -107,12 +117,14 @@ const useResizable = ({
 
       if (onResizeEnd) onResizeEnd();
     },
-    [axis, onResizeStart, shiftStep, step, reverse, position, min, max, onResizeEnd, initial],
+    // prettier-ignore
+    [disabled, axis, onResizeStart, shiftStep, step, reverse, position, min, max, onResizeEnd, initial],
   );
 
   const handleDoubleClick = useCallback<React.MouseEventHandler>(() => {
+    if (disabled) return;
     setPosition(initial);
-  }, [initial]);
+  }, [disabled, initial]);
 
   return {
     position,

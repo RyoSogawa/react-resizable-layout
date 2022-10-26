@@ -79,6 +79,7 @@ const Component = () => {
 | Name          | Type       | Default  | Required | Description                                                               |
 |---------------|------------|----------|----------|---------------------------------------------------------------------------|
 | axis          | 'x' or 'y' | -        | ◯        | Resize direction                                                          |
+| disabled      | boolean    | false    | -        | Disable resize                                                            |
 | initial       | number     | 0        | -        | Initial size                                                              |
 | min           | number     | 0        | -        | Minimum size                                                              |
 | max           | number     | Infinity | -        | Maximum size                                                              |
