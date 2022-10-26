@@ -1,61 +1,61 @@
-import type React from 'react'
+import type React from 'react';
 
-export type SplitterProps = React.ComponentPropsWithoutRef<'div'>
+export type SplitterProps = React.ComponentPropsWithoutRef<'div'>;
 
 export type Resizable = {
   /**
    * border position
    */
-  position: number
+  position: number;
   /**
    * whether the border is dragging
    */
-  isDragging: boolean
+  isDragging: boolean;
   /**
    * props for drag bar
    */
-  splitterProps: SplitterProps
-}
+  splitterProps: SplitterProps;
+};
 
 export type UseResizableProps = {
   /**
    * direction of resizing
    */
-  axis: 'x' | 'y'
+  axis: 'x' | 'y';
   /**
    * initial border position
    */
-  initial?: number
+  initial?: number;
   /**
    * minimum border position
    */
-  min?: number
+  min?: number;
   /**
    * maximum border position
    */
-  max?: number
+  max?: number;
   /**
    * calculate border position from other side
    */
-  reverse?: boolean
+  reverse?: boolean;
   /**
    * resizing step with keyboard
    */
-  step?: number
-  shiftStep?: number
+  step?: number;
+  shiftStep?: number;
   /**
    * callback when border position changes start
    */
-  onResizeStart?: () => void
+  onResizeStart?: () => void;
   /**
    * callback when border position changes end
    */
-  onResizeEnd?: () => void
-}
+  onResizeEnd?: () => void;
+};
 
 export type ResizableProps = UseResizableProps & {
   /**
    * callback children
    */
-  children: (props: Resizable) => JSX.Element
-}
+  children: (props: Resizable) => JSX.Element;
+};

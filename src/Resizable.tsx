@@ -1,5 +1,6 @@
-import useResizable from './useResizable'
-import type { ResizableProps } from './types'
+import useResizable from './useResizable';
+
+import type { ResizableProps } from './types';
 
 const Resizable = ({
   axis,
@@ -19,9 +20,9 @@ const Resizable = ({
     reverse,
     onResizeStart,
     onResizeEnd,
-  })
+  });
 
-  return children(resizable)
-}
+  return children(resizable);
+};
 
-export default Resizable
+export default Resizable;
