@@ -1,6 +1,11 @@
 import type React from 'react';
 
-export type SplitterProps = React.ComponentPropsWithoutRef<'hr'>;
+export type SeparatorProps = React.ComponentPropsWithoutRef<'hr'>;
+
+/**
+ * @deprecated Use SeparatorProps instead
+ */
+export type SplitterProps = SeparatorProps;
 
 export type Resizable = {
   /**
@@ -13,6 +18,10 @@ export type Resizable = {
   isDragging: boolean;
   /**
    * props for drag bar
+   */
+  separatorProps: SeparatorProps;
+  /**
+   * @deprecated Use separatorProps instead
    */
   splitterProps: SplitterProps;
 };

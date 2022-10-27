@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { cn } from '../utils/cn';
 
-const SampleSplitter = ({ id = 'drag-bar', dir, isDragging, disabled, ...props }: any) => {
+const SampleSeparator = ({ id = 'drag-bar', dir, isDragging, disabled, ...props }: any) => {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
@@ -23,4 +23,4 @@ const SampleSplitter = ({ id = 'drag-bar', dir, isDragging, disabled, ...props }
   );
 };
 
-export default SampleSplitter;
+export default SampleSeparator;

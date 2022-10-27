@@ -43,10 +43,10 @@ yarn add react-resizable-layout
 import Resizable from 'react-resizable-layout';
 
 <Resizable axis={'x'}>
-  {({ position, splitterProps }) => (
+  {({ position, separatorProps }) => (
     <div className="wrapper">
       <div className="left-block" style={{ width: position }} />
-      <YourSplitterComponent {...splitterProps} />
+      <YourSeparatorComponent {...separatorProps} />
       <div className="right-block" />
     </div>
   )}
@@ -59,14 +59,14 @@ import Resizable from 'react-resizable-layout';
 import { useResizable } from 'react-resizable-layout';
 
 const Component = () => {
-  const { position, splitterProps } = useResizable({
+  const { position, separatorProps } = useResizable({
     axis: 'x',
   })
 
   return (
     <div className="wrapper">
       <div className="left-block" style={{ width: position }} />
-      <YourSplitterComponent {...splitterProps} />
+      <YourSeparatorComponent {...separatorProps} />
       <div className="right-block" />
     </div>
   )
@@ -94,24 +94,24 @@ const Component = () => {
 
 `useResizable` hook returns same.
 
-| Name          | Type    | Description                                                   |
-|---------------|---------|---------------------------------------------------------------|
-| position      | number  | Splitter's position (Width for 'x' axis, height for 'y' axis) |
-| isDragging    | boolean | If dragging then true                                         |
-| splitterProps | object  | Splitter's props like onMouseDown                             |
+| Name           | Type    | Description                                                    |
+|----------------|---------|----------------------------------------------------------------|
+| position       | number  | Separator's position (Width for 'x' axis, height for 'y' axis) |
+| isDragging     | boolean | If dragging then true                                          |
+| separatorProps | object  | Separator's props like onMouseDown                             |
 
 ## About keyboard support
 The following keyboard operations are supported.
 
-| Key                               | Operation                                  |
-|-----------------------------------|--------------------------------------------|
-| Arrow (`↑`,`→`,`↓`,`←`)           | Move the splitter by 10px (default)        |
-| `Shift` + Arrow (`↑`,`→`,`↓`,`←`) | Move the splitter by 50px (default)        |
-| `Enter`                           | Reset the splitter to the initial position |
+| Key                               | Operation                                   |
+|-----------------------------------|---------------------------------------------|
+| Arrow (`↑`,`→`,`↓`,`←`)           | Move the separator by 10px (default)        |
+| `Shift` + Arrow (`↑`,`→`,`↓`,`←`) | Move the separator by 50px (default)        |
+| `Enter`                           | Reset the separator to the initial position |
 
 
 ## About mouse support
-Double-click on the splitter to return it to its initial position.
+Double-click on the separator to return it to its initial position.
 
 ## Contribution
 

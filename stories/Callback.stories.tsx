@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import Resizable from '../src/Resizable';
 import SampleBox from './components/SampleBox';
-import SampleSplitter from './components/SampleSplitter';
+import SampleSeparator from './components/SampleSeparator';
 
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
@@ -20,7 +20,7 @@ const Template: ComponentStory<typeof Resizable> = (props) => {
       onResizeStart={() => setDate(new Date())}
       onResizeEnd={() => alert(`You dragged!`)}
     >
-      {({ position: x, splitterProps }) => (
+      {({ position: x, separatorProps }) => (
         <div style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
           <SampleBox
             id="left-block"
@@ -29,7 +29,7 @@ const Template: ComponentStory<typeof Resizable> = (props) => {
             size={x}
             text={date && `dragging from ${date.toISOString()}`}
           />
-          <SampleSplitter id="splitter" {...splitterProps} />
+          <SampleSeparator id="splitter" {...separatorProps} />
           <SampleBox
             id="right-block"
             theme="red"
