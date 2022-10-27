@@ -2,7 +2,7 @@ import React from 'react';
 
 import Resizable from '../src/Resizable';
 import SampleBox from './components/SampleBox';
-import SampleSplitter from './components/SampleSplitter';
+import SampleSeparator from './components/SampleSeparator';
 
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
@@ -13,7 +13,7 @@ export default {
 
 const Template: ComponentStory<typeof Resizable> = (props) => (
   <Resizable {...props}>
-    {({ position: y, splitterProps }) => (
+    {({ position: y, separatorProps }) => (
       <div
         style={{
           display: 'flex',
@@ -23,7 +23,7 @@ const Template: ComponentStory<typeof Resizable> = (props) => (
         }}
       >
         <SampleBox id="top-block" height={y} theme="blue" size={y} />
-        <SampleSplitter id="splitter" dir="horizontal" {...splitterProps} />
+        <SampleSeparator id="splitter" dir="horizontal" {...separatorProps} />
         <SampleBox id="bottom-block" height={`calc(100% - ${y}px)`} theme="red" />
       </div>
     )}

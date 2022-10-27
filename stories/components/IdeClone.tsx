@@ -2,13 +2,13 @@ import React from 'react';
 
 import { useResizable } from '../../src';
 import { cn } from '../utils/cn';
-import SampleSplitter from './SampleSplitter';
+import SampleSeparator from './SampleSeparator';
 
 const IdeClone = (): JSX.Element => {
   const {
     isDragging: isTerminalDragging,
     position: terminalH,
-    splitterProps: terminalDragBarProps,
+    separatorProps: terminalDragBarProps,
   } = useResizable({
     axis: 'y',
     initial: 150,
@@ -18,7 +18,7 @@ const IdeClone = (): JSX.Element => {
   const {
     isDragging: isFileDragging,
     position: fileW,
-    splitterProps: fileDragBarProps,
+    separatorProps: fileDragBarProps,
   } = useResizable({
     axis: 'x',
     initial: 250,
@@ -27,7 +27,7 @@ const IdeClone = (): JSX.Element => {
   const {
     isDragging: isPluginDragging,
     position: pluginW,
-    splitterProps: pluginDragBarProps,
+    separatorProps: pluginDragBarProps,
   } = useResizable({
     axis: 'x',
     initial: 200,
@@ -44,10 +44,10 @@ const IdeClone = (): JSX.Element => {
         >
           File Tree
         </div>
-        <SampleSplitter isDragging={isFileDragging} {...fileDragBarProps} />
+        <SampleSeparator isDragging={isFileDragging} {...fileDragBarProps} />
         <div className="flex grow">
           <div className="grow bg-darker contents">Editor</div>
-          <SampleSplitter isDragging={isPluginDragging} {...pluginDragBarProps} />
+          <SampleSeparator isDragging={isPluginDragging} {...pluginDragBarProps} />
           <div
             className={cn('shrink-0 contents', isPluginDragging && 'dragging')}
             style={{ width: pluginW }}
@@ -56,11 +56,7 @@ const IdeClone = (): JSX.Element => {
           </div>
         </div>
       </div>
-      <SampleSplitter
-        dir="horizontal"
-        isDragging={isTerminalDragging}
-        {...terminalDragBarProps}
-      />
+      <SampleSeparator dir="horizontal" isDragging={isTerminalDragging} {...terminalDragBarProps} />
       <div
         className={cn('shrink-0 bg-darker contents', isTerminalDragging && 'dragging')}
         style={{ height: terminalH }}
