@@ -7,7 +7,7 @@
 [![tree shaking](https://badgen.net/bundlephobia/tree-shaking/react-resizable-layout)](https://bundlephobia.com/package/react-resizable-layout)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-Headless React component and hook for resizable layout.
+Lightweight, accessible headless React component and hook for drag-and-drop resizable layouts.
 
 ![Hero Image](./hero.gif)
 
@@ -72,6 +72,19 @@ const Component = () => {
   )
 }
 ```
+
+## Aria Props
+The following attributes have been added to `separatorProps` in accordance with W3C.  
+https://www.w3.org/TR/wai-aria-1.2/#separator
+
+| Attribute        | Value                          |
+|------------------|--------------------------------|
+| role             | `'separator'`                  |
+| aria-valuenow    | `position`                     |
+| aria-valuemin    | `props.min`                    |
+| aria-valuemax    | `props.max`                    |
+| aria-orientation | `'vertical'` or `'horizontal'` |
+| aria-disabled    | `props.disabled`               |
 
 ## Configuration
 
