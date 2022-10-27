@@ -1,6 +1,6 @@
 {
   "name": "react-resizable-layout",
-  "description": "Lightweight headless React component and hook for resizable layout with Drag and Drop.",
+  "description": "Lightweight, accessible headless React component and hook for drag-and-drop resizable layouts.",
   "author": "RyoSogawa",
   "version": "0.4.0",
   "license": "MIT",

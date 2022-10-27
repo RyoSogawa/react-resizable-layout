@@ -7,7 +7,7 @@
 [![tree shaking](https://badgen.net/bundlephobia/tree-shaking/react-resizable-layout)](https://bundlephobia.com/package/react-resizable-layout)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-Headless React component and hook for resizable layout.
+Lightweight, accessible headless React component and hook for drag-and-drop resizable layouts.
 
 ![Hero Image](./hero.gif)
 
