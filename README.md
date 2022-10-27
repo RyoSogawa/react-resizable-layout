@@ -73,6 +73,19 @@ const Component = () => {
 }
 ```
 
+## Aria Props
+The following attributes have been added to `separatorProps` in accordance with W3C.  
+https://www.w3.org/TR/wai-aria-1.2/#separator
+
+| Attribute        | Value                          |
+|------------------|--------------------------------|
+| role             | `'separator'`                  |
+| aria-valuenow    | `position`                     |
+| aria-valuemin    | `props.min`                    |
+| aria-valuemax    | `props.max`                    |
+| aria-orientation | `'vertical'` or `'horizontal'` |
+| aria-disabled    | `props.disabled`               |
+
 ## Configuration
 
 ### Common Props
