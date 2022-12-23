@@ -12,6 +12,7 @@ const Resizable = ({
   onResizeStart,
   onResizeEnd,
   children,
+  containerRef,
 }: ResizableProps): JSX.Element => {
   const resizable = useResizable({
     axis,
@@ -22,6 +23,7 @@ const Resizable = ({
     reverse,
     onResizeStart,
     onResizeEnd,
+    containerRef,
   });
 
   return children(resizable);
