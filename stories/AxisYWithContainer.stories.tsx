@@ -24,7 +24,7 @@ const Template: ComponentStory<typeof Resizable> = (props) => {
               style={{
                 display: 'flex',
                 flexDirection: 'column',
-                height: '100vh',
+                height: 'calc(100vh - 32px)',
                 overflow: 'hidden',
               }}
             >
