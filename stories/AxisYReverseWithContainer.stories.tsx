@@ -17,24 +17,23 @@ const Template: ComponentStory<typeof Resizable> = (props) => {
   return (
     <>
       <div style={{ padding: '16px', background: 'red' }} />
-      <div ref={containerRef}>
-        <Resizable {...props} containerRef={containerRef}>
-          {({ position: y, separatorProps }) => (
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                height: 'calc(100vh - 64px)',
-                overflow: 'hidden',
-              }}
-            >
-              <SampleBox id="top-block" height={`calc(100% - ${y}px)`} theme="blue" />
-              <SampleSeparator id="splitter" dir="horizontal" {...separatorProps} />
-              <SampleBox id="bottom-block" height={y} size={y} theme="red" />
-            </div>
-          )}
-        </Resizable>
-      </div>
+      <Resizable {...props} containerRef={containerRef}>
+        {({ position: y, separatorProps }) => (
+          <div
+            ref={containerRef}
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              height: 'calc(100vh - 64px)',
+              overflow: 'hidden',
+            }}
+          >
+            <SampleBox id="top-block" height={`calc(100% - ${y}px)`} theme="blue" />
+            <SampleSeparator id="splitter" dir="horizontal" {...separatorProps} />
+            <SampleBox id="bottom-block" height={y} size={y} theme="red" />
+          </div>
+        )}
+      </Resizable>
       <div style={{ padding: '16px', background: 'red' }} />
     </>
   );
