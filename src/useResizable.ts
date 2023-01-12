@@ -46,18 +46,17 @@ const useResizable = ({
 
       const currentPosition = (() => {
         if (axis === 'x') {
-          if (containerRef && containerRef.current) {
+          if (containerRef?.current) {
             const containerNode = containerRef.current;
             const { left, width } = containerNode.getBoundingClientRect();
             return reverse ? left + width - e.clientX : e.clientX - left;
           }
           return reverse ? document.body.offsetWidth - e.clientX : e.clientX;
         }
-        if (containerRef && containerRef.current) {
+        if (containerRef?.current) {
           const containerNode = containerRef.current;
           const { top, height } = containerNode.getBoundingClientRect();
-          const t = reverse ? top + height - e.clientY : e.clientY - top;
-          return t;
+          return reverse ? top + height - e.clientY : e.clientY - top;
         }
         return reverse ? document.body.offsetHeight - e.clientY : e.clientY;
       })();
