@@ -16,6 +16,7 @@ const useResizable = ({
   shiftStep = 50,
   onResizeStart,
   onResizeEnd,
+  containerRef,
 }: UseResizableProps): Resizable => {
   const isResizing = useRef(false);
   const [isDragging, setIsDragging] = useState(false);
@@ -45,7 +46,18 @@ const useResizable = ({
 
       const currentPosition = (() => {
         if (axis === 'x') {
+          if (containerRef && containerRef.current) {
+            const containerNode = containerRef.current;
+            const { left, width } = containerNode.getBoundingClientRect();
+            return reverse ? left + width - e.clientX : e.clientX - left;
+          }
           return reverse ? document.body.offsetWidth - e.clientX : e.clientX;
+        }
+        if (containerRef && containerRef.current) {
+          const containerNode = containerRef.current;
+          const { top, height } = containerNode.getBoundingClientRect();
+          const t = reverse ? top + height - e.clientY : e.clientY - top;
+          return t;
         }
         return reverse ? document.body.offsetHeight - e.clientY : e.clientY;
       })();
@@ -54,7 +66,7 @@ const useResizable = ({
         setPosition(currentPosition);
       }
     },
-    [axis, disabled, max, min, reverse],
+    [axis, disabled, max, min, reverse, containerRef],
   );
 
   const handleMouseup = useCallback(
