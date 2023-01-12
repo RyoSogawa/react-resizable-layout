@@ -93,6 +93,7 @@ https://www.w3.org/TR/wai-aria-1.2/#separator
 | Name          | Type                    | Default  | Required | Description                                                               |
 |---------------|-------------------------|----------|----------|---------------------------------------------------------------------------|
 | axis          | 'x' or 'y'              | -        | ◯        | Resize direction                                                          |
+| containerRef  | ReactRef<HTMLElement>   | -        | -        | Reference to container for calculating position                           |
 | disabled      | boolean                 | false    | -        | Disable resize                                                            |
 | initial       | number                  | 0        | -        | Initial size                                                              |
 | min           | number                  | 0        | -        | Minimum size                                                              |
@@ -102,7 +103,6 @@ https://www.w3.org/TR/wai-aria-1.2/#separator
 | shiftStep     | number                  | 50       | -        | Pixel steps when operating with keyboard while holding down the shift key |
 | onResizeStart | function                | -        | -        | Callback on resize start                                                  |
 | onResizeEnd   | function                | -        | -        | Callback on resize end                                                    |
-| containerRef  | ReactRef<HTMLElement>   | -        | -        | Reference to container for calculating position                           |
 
 ### `Resizable` component children args
 

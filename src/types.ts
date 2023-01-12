@@ -32,6 +32,10 @@ export type UseResizableProps = {
    */
   axis: 'x' | 'y';
   /**
+   * ref of the container element
+   */
+  containerRef?: React.RefObject<HTMLElement>;
+  /**
    * if true, cannot resize
    */
   disabled?: boolean;
@@ -64,10 +68,6 @@ export type UseResizableProps = {
    * callback when border position changes end
    */
   onResizeEnd?: () => void;
-  /**
-   * ref of the container element
-   */
-  containerRef?: React.RefObject<HTMLElement>;
 };
 
 export type ResizableProps = UseResizableProps & {
