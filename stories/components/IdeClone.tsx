@@ -1,8 +1,8 @@
 import React from 'react';
 
+import SampleSeparator from './SampleSeparator';
 import { useResizable } from '../../src';
 import { cn } from '../utils/cn';
-import SampleSeparator from './SampleSeparator';
 
 const IdeClone = (): JSX.Element => {
   const {

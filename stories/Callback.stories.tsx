@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import Resizable from '../src/Resizable';
 import SampleBox from './components/SampleBox';
 import SampleSeparator from './components/SampleSeparator';
+import Resizable from '../src/Resizable';
 
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
