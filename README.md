@@ -22,6 +22,7 @@ Lightweight, accessible headless React component and hook for drag-and-drop resi
 - 🤏 Drag and Drop Support
 - ⌨️ Keyboard Support
 - 🫙 Zero Dependencies
+  
 
 ## Installation
 
@@ -34,6 +35,7 @@ npm install react-resizable-layout
 # Using Yarn
 yarn add react-resizable-layout
 ```
+  
 
 ## Usage
 ### `Resizable` component
@@ -71,6 +73,7 @@ const Component = () => {
   )
 }
 ```
+  
 
 ## Aria Props
 The following attributes have been added to `separatorProps` in accordance with W3C.  
@@ -84,6 +87,7 @@ https://www.w3.org/TR/wai-aria-1.2/#separator
 | aria-valuemax    | `props.max`                    |
 | aria-orientation | `'vertical'` or `'horizontal'` |
 | aria-disabled    | `props.disabled`               |
+  
 
 ## Configuration
 
@@ -112,6 +116,7 @@ https://www.w3.org/TR/wai-aria-1.2/#separator
 | position       | number  | Separator's position (Width for 'x' axis, height for 'y' axis) |
 | isDragging     | boolean | If dragging then true                                          |
 | separatorProps | object  | Separator's props like onMouseDown                             |
+  
 
 ## About keyboard support
 The following keyboard operations are supported.
@@ -121,14 +126,16 @@ The following keyboard operations are supported.
 | Arrow (`↑`,`→`,`↓`,`←`)           | Move the separator by 10px (default)        |
 | `Shift` + Arrow (`↑`,`→`,`↓`,`←`) | Move the separator by 50px (default)        |
 | `Enter`                           | Reset the separator to the initial position |
-
+  
 
 ## About mouse support
 Double-click on the separator to return it to its initial position.
+  
 
 ## Contribution
 
 Please feel free to open an issue or make a pull request.
+  
 
 ## License
 
