@@ -1,8 +1,8 @@
 {
-  "name": "react-resizable-layout",
+  "name": "react-resizable-layout-mobile",
   "description": "Lightweight, accessible headless React component and hook for drag-and-drop resizable layouts.",
   "author": "RyoSogawa",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -81,5 +81,6 @@
       "eslint --fix",
       "prettier --write"
     ]
-  }
+  },
+  "dependencies": {}
 }

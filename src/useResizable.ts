@@ -34,8 +34,8 @@ const useResizable = ({
     [axis, disabled, max, min, position],
   );
 
-  const handleMousemove = useCallback(
-    (e: MouseEvent) => {
+  const handlePointermove = useCallback(
+    (e: PointerEvent) => {
       // exit if not resizing
       if (!isResizing.current) return;
 
@@ -68,32 +68,32 @@ const useResizable = ({
     [axis, disabled, max, min, reverse, containerRef],
   );
 
-  const handleMouseup = useCallback(
+  const handlePointerup = useCallback(
     (e: MouseEvent) => {
       if (disabled) return;
 
       e.stopPropagation();
       isResizing.current = false;
       setIsDragging(false);
-      document.removeEventListener('mousemove', handleMousemove);
-      document.removeEventListener('mouseup', handleMouseup);
+      document.removeEventListener('pointermove', handlePointermove);
+      document.removeEventListener('pointerup', handlePointerup);
       if (onResizeEnd) onResizeEnd();
     },
-    [disabled, handleMousemove, onResizeEnd],
+    [disabled, handlePointermove, onResizeEnd],
   );
 
-  const handleMousedown = useCallback<React.MouseEventHandler>(
+  const handlePointerdown = useCallback<React.PointerEventHandler>(
     (e) => {
       if (disabled) return;
 
       e.stopPropagation();
       isResizing.current = true;
       setIsDragging(true);
-      document.addEventListener('mousemove', handleMousemove);
-      document.addEventListener('mouseup', handleMouseup);
+      document.addEventListener('pointermove', handlePointermove);
+      document.addEventListener('pointerup', handlePointerup);
       if (onResizeStart) onResizeStart();
     },
-    [disabled, handleMousemove, handleMouseup, onResizeStart],
+    [disabled, handlePointermove, handlePointerup, onResizeStart],
   );
 
   const handleKeyDown = useCallback<React.KeyboardEventHandler>(
@@ -142,14 +142,14 @@ const useResizable = ({
     isDragging,
     separatorProps: {
       ...ariaProps,
-      onMouseDown: handleMousedown,
+      onPointerDown: handlePointerdown,
       onKeyDown: handleKeyDown,
       onDoubleClick: handleDoubleClick,
     },
     // deprecated. next version will remove this.
     splitterProps: {
       ...ariaProps,
-      onMouseDown: handleMousedown,
+      onPointerDown: handlePointerdown,
       onKeyDown: handleKeyDown,
       onDoubleClick: handleDoubleClick,
     },
