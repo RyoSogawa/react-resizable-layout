@@ -115,7 +115,7 @@ https://www.w3.org/TR/wai-aria-1.2/#separator
 |----------------|---------|----------------------------------------------------------------|
 | position       | number  | Separator's position (Width for 'x' axis, height for 'y' axis) |
 | isDragging     | boolean | If dragging then true                                          |
-| separatorProps | object  | Separator's props like onMouseDown                             |
+| separatorProps | object  | Separator's props like onPointerDown                           |
   
 
 ## About keyboard support
