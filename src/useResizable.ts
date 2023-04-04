@@ -18,9 +18,12 @@ const useResizable = ({
   onResizeEnd,
   containerRef,
 }: UseResizableProps): Resizable => {
+  const initialPosition = Math.min(Math.max(initial, min), max);
   const isResizing = useRef(false);
   const [isDragging, setIsDragging] = useState(false);
-  const [position, setPosition] = useState(Math.min(Math.max(initial, min), max));
+  const [position, setPosition] = useState(initialPosition);
+  const positionRef = useRef(initialPosition);
+  const [fixedPosition, setFixedPosition] = useState(initialPosition);
 
   const ariaProps = useMemo<SeparatorProps>(
     () => ({
@@ -63,6 +66,7 @@ const useResizable = ({
 
       if (min < currentPosition && currentPosition < max) {
         setPosition(currentPosition);
+        positionRef.current = currentPosition;
       }
     },
     [axis, disabled, max, min, reverse, containerRef],
@@ -75,6 +79,7 @@ const useResizable = ({
       e.stopPropagation();
       isResizing.current = false;
       setIsDragging(false);
+      setFixedPosition(positionRef.current);
       document.removeEventListener('pointermove', handlePointermove);
       document.removeEventListener('pointerup', handlePointerup);
       if (onResizeEnd) onResizeEnd();
@@ -102,6 +107,7 @@ const useResizable = ({
 
       if (e.key === 'Enter') {
         setPosition(initial);
+        positionRef.current = initial;
         return;
       }
       if (
@@ -120,10 +126,13 @@ const useResizable = ({
       const newPosition = position + changeStep * dir;
       if (newPosition < min) {
         setPosition(min);
+        positionRef.current = min;
       } else if (newPosition > max) {
         setPosition(max);
+        positionRef.current = max;
       } else {
         setPosition(newPosition);
+        positionRef.current = newPosition;
       }
 
       if (onResizeEnd) onResizeEnd();
@@ -135,10 +144,12 @@ const useResizable = ({
   const handleDoubleClick = useCallback<React.MouseEventHandler>(() => {
     if (disabled) return;
     setPosition(initial);
+    positionRef.current = initial;
   }, [disabled, initial]);
 
   return {
     position,
+    fixedPosition,
     isDragging,
     separatorProps: {
       ...ariaProps,

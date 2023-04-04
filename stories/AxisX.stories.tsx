@@ -7,7 +7,7 @@ import Resizable from '../src/Resizable';
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
 export default {
-  title: 'main/Resizable',
+  title: 'Basic',
   component: Resizable,
 } as ComponentMeta<typeof Resizable>;
 
