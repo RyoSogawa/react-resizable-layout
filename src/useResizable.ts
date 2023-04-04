@@ -73,7 +73,7 @@ const useResizable = ({
   );
 
   const handlePointerup = useCallback(
-    (e: MouseEvent) => {
+    (e: PointerEvent) => {
       if (disabled) return;
 
       e.stopPropagation();
