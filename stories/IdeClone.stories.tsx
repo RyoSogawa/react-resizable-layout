@@ -5,11 +5,11 @@ import IdeClone from './components/IdeClone';
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
 export default {
-  title: 'sample/clone',
+  title: 'Example',
   component: IdeClone,
 } as ComponentMeta<typeof IdeClone>;
 
 const Template: ComponentStory<typeof IdeClone> = () => <IdeClone />;
 
-export const IDE = Template.bind({});
-IDE.args = {};
+export const IDEClone = Template.bind({});
+IDEClone.args = {};
