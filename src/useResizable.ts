@@ -107,6 +107,7 @@ const useResizable = ({
 
       if (e.key === 'Enter') {
         setPosition(initial);
+        positionRef.current = initial;
         return;
       }
       if (
@@ -125,10 +126,13 @@ const useResizable = ({
       const newPosition = position + changeStep * dir;
       if (newPosition < min) {
         setPosition(min);
+        positionRef.current = min;
       } else if (newPosition > max) {
         setPosition(max);
+        positionRef.current = max;
       } else {
         setPosition(newPosition);
+        positionRef.current = newPosition;
       }
 
       if (onResizeEnd) onResizeEnd();
@@ -140,6 +144,7 @@ const useResizable = ({
   const handleDoubleClick = useCallback<React.MouseEventHandler>(() => {
     if (disabled) return;
     setPosition(initial);
+    positionRef.current = initial;
   }, [disabled, initial]);
 
   return {
