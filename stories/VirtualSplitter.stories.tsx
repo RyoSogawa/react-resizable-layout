@@ -24,9 +24,9 @@ const Template: ComponentStory<typeof Resizable> = (props) => (
         }}
       >
         <SampleBox id="left-block" theme="blue" width={fixedX} size={fixedX} />
-        <SampleSeparator id="splitter" {...separatorProps} />
+        <SampleSeparator id="splitter" />
         <SampleSeparator
-          id="splitter"
+          id="virtual-splitter"
           {...separatorProps}
           style={{
             position: 'absolute',
