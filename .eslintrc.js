@@ -94,6 +94,7 @@ module.exports = {
         'max-lines': 'off',
         'no-console': 'off',
         'no-alert': 'off',
+        'react-hooks/rules-of-hooks': 'off',
       },
     },
   ],
