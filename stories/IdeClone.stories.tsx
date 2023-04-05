@@ -1,5 +1,3 @@
-import React from 'react';
-
 import IdeClone from './components/IdeClone';
 
 import type { Meta, StoryObj } from '@storybook/react';
