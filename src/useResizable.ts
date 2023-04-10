@@ -23,7 +23,7 @@ const useResizable = ({
   const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState(initialPosition);
   const positionRef = useRef(initialPosition);
-  const [fixedPosition, setFixedPosition] = useState(initialPosition);
+  const [endPosition, setEndPosition] = useState(initialPosition);
 
   const ariaProps = useMemo<SeparatorProps>(
     () => ({
@@ -79,7 +79,7 @@ const useResizable = ({
       e.stopPropagation();
       isResizing.current = false;
       setIsDragging(false);
-      setFixedPosition(positionRef.current);
+      setEndPosition(positionRef.current);
       document.removeEventListener('pointermove', handlePointermove);
       document.removeEventListener('pointerup', handlePointerup);
       if (onResizeEnd) onResizeEnd();
@@ -149,7 +149,7 @@ const useResizable = ({
 
   return {
     position,
-    fixedPosition,
+    endPosition,
     isDragging,
     separatorProps: {
       ...ariaProps,
