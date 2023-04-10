@@ -13,9 +13,9 @@ export type Resizable = {
    */
   position: number;
   /**
-   * position at start and end of drag
+   * position at end of drag
    */
-  fixedPosition: number;
+  endPosition: number;
   /**
    * whether the border is dragging
    */
