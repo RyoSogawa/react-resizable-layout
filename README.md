@@ -12,7 +12,7 @@ Lightweight, accessible headless React component and hook for drag-and-drop resi
 
 [![Edit react-resizable-layout](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-resizable-layout-jy3vhk?fontsize=14&hidenavigation=1&theme=dark)
 
-[Storybook Demo](https://ryosogawa.github.io/react-resizable-layout/)
+[Storybook Demo](https://react-resizable-layout.vercel.app/)
 
 ## Features
 
