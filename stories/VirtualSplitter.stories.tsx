@@ -20,7 +20,7 @@ export const VirtualSplitter: StoryObj<typeof Resizable> = {
   },
   render: (props) => (
     <Resizable {...props}>
-      {({ position: x, fixedPosition: fixedX, isDragging, separatorProps }) => (
+      {({ position: x, endPosition: endX, isDragging, separatorProps }) => (
         <div
           id="wrapper"
           style={{
@@ -30,7 +30,7 @@ export const VirtualSplitter: StoryObj<typeof Resizable> = {
             overflow: 'hidden',
           }}
         >
-          <SampleBox id="left-block" theme="blue" width={fixedX} size={fixedX} />
+          <SampleBox id="left-block" theme="blue" width={endX} size={endX} />
           <SampleSeparator id="splitter" />
           <SampleSeparator
             id="virtual-splitter"
@@ -43,7 +43,7 @@ export const VirtualSplitter: StoryObj<typeof Resizable> = {
               opacity: isDragging ? 0.3 : 0,
             }}
           />
-          <SampleBox id="right-block" theme="red" width={`calc(100% - ${fixedX}px)`} />
+          <SampleBox id="right-block" theme="red" width={`calc(100% - ${endX}px)`} />
         </div>
       )}
     </Resizable>
