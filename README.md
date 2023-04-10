@@ -6,7 +6,7 @@
 [![dependencies count](https://badgen.net/bundlephobia/dependency-count/react-resizable-layout)](https://bundlephobia.com/package/react-resizable-layout)
 [![tree shaking](https://badgen.net/bundlephobia/tree-shaking/react-resizable-layout)](https://bundlephobia.com/package/react-resizable-layout)
 
-Lightweight, accessible headless React component and hook for drag-and-drop resizable layouts.
+A lightweight, accessible headless React component and hook for drag-and-drop resizable layouts.
 
 ![Hero Image](./hero.gif)
 
@@ -76,7 +76,7 @@ const Component = () => {
   
 
 ## Aria Props
-The following attributes have been added to `separatorProps` in accordance with W3C.  
+The following attributes are added to `separatorProps` in accordance with W3C.  
 https://www.w3.org/TR/wai-aria-1.2/#separator
 
 | Attribute        | Value                          |
@@ -115,7 +115,7 @@ https://www.w3.org/TR/wai-aria-1.2/#separator
 |----------------|---------|----------------------------------------------------------------|
 | position       | number  | Separator's position (Width for 'x' axis, height for 'y' axis) |
 | fixedPosition  | number  | Position at start and end of drag                              |
-| isDragging     | boolean | If dragging then true                                          |
+| isDragging     | boolean | True if dragging                                               |
 | separatorProps | object  | Separator's props like onPointerDown                           |
   
 
@@ -134,10 +134,8 @@ Double-click on the separator to return it to its initial position.
   
 
 ## Contribution
-
-Please feel free to open an issue or make a pull request.
+Feel free to open an issue or make a pull request.
   
 
 ## License
-
 Distributed under the MIT License. See [LICENSE](./LICENSE) for more information.
