@@ -82,7 +82,7 @@ const useResizable = ({
       setEndPosition(positionRef.current);
       document.removeEventListener('pointermove', handlePointermove);
       document.removeEventListener('pointerup', handlePointerup);
-      if (onResizeEnd) onResizeEnd();
+      if (onResizeEnd) onResizeEnd(positionRef.current);
     },
     [disabled, handlePointermove, onResizeEnd],
   );
@@ -96,7 +96,7 @@ const useResizable = ({
       setIsDragging(true);
       document.addEventListener('pointermove', handlePointermove);
       document.addEventListener('pointerup', handlePointerup);
-      if (onResizeStart) onResizeStart();
+      if (onResizeStart) onResizeStart(positionRef.current);
     },
     [disabled, handlePointermove, handlePointerup, onResizeStart],
   );
@@ -117,7 +117,7 @@ const useResizable = ({
         return;
       }
 
-      if (onResizeStart) onResizeStart();
+      if (onResizeStart) onResizeStart(positionRef.current);
 
       const changeStep = e.shiftKey ? shiftStep : step;
       const reversed = reverse ? -1 : 1;
@@ -135,7 +135,7 @@ const useResizable = ({
         positionRef.current = newPosition;
       }
 
-      if (onResizeEnd) onResizeEnd();
+      if (onResizeEnd) onResizeEnd(positionRef.current);
     },
     // prettier-ignore
     [disabled, axis, onResizeStart, shiftStep, step, reverse, position, min, max, onResizeEnd, initial],

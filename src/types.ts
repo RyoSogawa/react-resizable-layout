@@ -67,11 +67,11 @@ export type UseResizableProps = {
   /**
    * callback when border position changes start
    */
-  onResizeStart?: () => void;
+  onResizeStart?: (position?: number) => void;
   /**
    * callback when border position changes end
    */
-  onResizeEnd?: () => void;
+  onResizeEnd?: (position?: number) => void;
 };
 
 export type ResizableProps = UseResizableProps & {
