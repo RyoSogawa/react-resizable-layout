@@ -30,6 +30,13 @@ export type Resizable = {
   splitterProps: SplitterProps;
 };
 
+export type ResizeCallbackArgs = {
+  /**
+   * position at the time of callback
+   */
+  position: number;
+};
+
 export type UseResizableProps = {
   /**
    * direction of resizing
@@ -67,11 +74,11 @@ export type UseResizableProps = {
   /**
    * callback when border position changes start
    */
-  onResizeStart?: (position: number) => void;
+  onResizeStart?: (args: ResizeCallbackArgs) => void;
   /**
    * callback when border position changes end
    */
-  onResizeEnd?: (position: number) => void;
+  onResizeEnd?: (args: ResizeCallbackArgs) => void;
 };
 
 export type ResizableProps = UseResizableProps & {
