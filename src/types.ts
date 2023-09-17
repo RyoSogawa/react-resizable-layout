@@ -25,6 +25,10 @@ export type Resizable = {
    */
   separatorProps: SeparatorProps;
   /**
+   * set border position
+   */
+  setPosition: React.Dispatch<React.SetStateAction<number>>;
+  /**
    * @deprecated Use separatorProps instead
    */
   splitterProps: SplitterProps;

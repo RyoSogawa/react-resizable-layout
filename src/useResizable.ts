@@ -157,6 +157,7 @@ const useResizable = ({
       onKeyDown: handleKeyDown,
       onDoubleClick: handleDoubleClick,
     },
+    setPosition,
     // deprecated. next version will remove this.
     splitterProps: {
       ...ariaProps,
