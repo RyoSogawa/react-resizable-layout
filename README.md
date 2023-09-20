@@ -111,12 +111,13 @@ https://www.w3.org/TR/wai-aria-1.2/#separator
 
 `useResizable` hook returns same.
 
-| Name           | Type    | Description                                                    |
-|----------------|---------|----------------------------------------------------------------|
-| position       | number  | Separator's position (Width for 'x' axis, height for 'y' axis) |
-| endPosition    | number  | Separator's position at end of drag                            |
-| isDragging     | boolean | True if dragging                                               |
-| separatorProps | object  | Separator's props like onPointerDown                           |
+| Name           | Type     | Description                                                    |
+|----------------|----------|----------------------------------------------------------------|
+| position       | number   | Separator's position (Width for 'x' axis, height for 'y' axis) |
+| endPosition    | number   | Separator's position at end of drag                            |
+| isDragging     | boolean  | True if dragging                                               |
+| separatorProps | object   | Separator's props like onPointerDown                           |
+| setPosition    | function | Set separator's position                                       |
   
 
 ## About keyboard support
