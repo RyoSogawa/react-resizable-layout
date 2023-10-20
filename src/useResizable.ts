@@ -47,7 +47,7 @@ const useResizable = ({
       e.stopPropagation();
       e.preventDefault(); // prevent text selection
 
-      const currentPosition = (() => {
+      let currentPosition = (() => {
         if (axis === 'x') {
           if (containerRef?.current) {
             const containerNode = containerRef.current;
