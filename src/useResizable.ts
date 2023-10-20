@@ -64,10 +64,9 @@ const useResizable = ({
         return reverse ? document.body.offsetHeight - e.clientY : e.clientY;
       })();
 
-      if (min < currentPosition && currentPosition < max) {
-        setPosition(currentPosition);
-        positionRef.current = currentPosition;
-      }
+      currentPosition = Math.max(Math.min(currentPosition, max), min);
+      setPosition(currentPosition);
+      positionRef.current = currentPosition;
     },
     [axis, disabled, max, min, reverse, containerRef],
   );
