@@ -47,7 +47,7 @@ const useResizable = ({
       e.stopPropagation();
       e.preventDefault(); // prevent text selection
 
-      const currentPosition = (() => {
+      let currentPosition = (() => {
         if (axis === 'x') {
           if (containerRef?.current) {
             const containerNode = containerRef.current;
@@ -64,10 +64,9 @@ const useResizable = ({
         return reverse ? document.body.offsetHeight - e.clientY : e.clientY;
       })();
 
-      if (min < currentPosition && currentPosition < max) {
-        setPosition(currentPosition);
-        positionRef.current = currentPosition;
-      }
+      currentPosition = Math.min(Math.max(currentPosition, min), max);
+      setPosition(currentPosition);
+      positionRef.current = currentPosition;
     },
     [axis, disabled, max, min, reverse, containerRef],
   );
