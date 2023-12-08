@@ -83,6 +83,7 @@ export type UseResizableProps = {
    * callback when border position changes end
    */
   onResizeEnd?: (args: ResizeCallbackArgs) => void;
+  useLocalstorage?: boolean;
 };
 
 export type ResizableProps = UseResizableProps & {
