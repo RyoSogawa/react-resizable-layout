@@ -1,2 +1,0 @@
-import{a as n,c as p,j as d}from"./Resizable-0495003d.js";const r=({id:e,width:s,height:t,theme:o,size:a,text:l})=>{const c=(()=>{switch(o){case"blue":return"sample-box--blue";case"red":return"sample-box--red";default:return null}})();return n("div",{id:e,"data-testid":e,className:p("sample-box",c),style:{width:s,height:t},children:[l||"Drag center bar to resize",d("br",{}),a&&`(currentSize : ${a}px)`]})};try{r.displayName="SampleBox",r.__docgenInfo={description:"",displayName:"SampleBox",props:{}}}catch{}export{r as S};
-//# sourceMappingURL=SampleBox-e329dd5f.js.map
