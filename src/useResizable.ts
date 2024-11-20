@@ -1,7 +1,7 @@
 import type React from 'react';
-import { useCallback, useMemo, useRef, useState } from 'react';
+import { type Dispatch, useCallback, useMemo, useRef, useState } from 'react';
 
-import { KEYS_AXIS_X, KEYS_AXIS_Y, KEYS_POSITIVE } from './constants';
+import { KEYS_AXIS_X, KEYS_AXIS_Y, KEYS_POSITIVE, POSITION } from './constants';
 
 import type { Resizable, SeparatorProps, UseResizableProps } from './types';
 
@@ -17,14 +17,27 @@ const useResizable = ({
   onResizeStart,
   onResizeEnd,
   containerRef,
+  useLocalstorage = false,
 }: UseResizableProps): Resizable => {
-  const initialPosition = Math.min(Math.max(initial, min), max);
+  let initialPosition = Math.min(Math.max(initial, min), max);
+  const preWidth = localStorage.getItem(POSITION);
+  if (useLocalstorage && preWidth) {
+    initialPosition = parseFloat(preWidth);
+  }
   const isResizing = useRef(false);
   const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState(initialPosition);
   const positionRef = useRef(initialPosition);
   const [endPosition, setEndPosition] = useState(initialPosition);
-
+  const myPosition = useCallback(
+    (value: number) => {
+      if (useLocalstorage) {
+        localStorage.setItem(POSITION, JSON.stringify(value));
+      }
+      setPosition(value);
+    },
+    [useLocalstorage],
+  );
   const ariaProps = useMemo<SeparatorProps>(
     () => ({
       role: 'separator',
@@ -65,10 +78,10 @@ const useResizable = ({
       })();
 
       currentPosition = Math.min(Math.max(currentPosition, min), max);
-      setPosition(currentPosition);
+      myPosition(currentPosition);
       positionRef.current = currentPosition;
     },
-    [axis, disabled, max, min, reverse, containerRef],
+    [axis, disabled, max, min, reverse, containerRef, myPosition],
   );
 
   const handlePointerup = useCallback(
@@ -105,7 +118,7 @@ const useResizable = ({
       if (disabled) return;
 
       if (e.key === 'Enter') {
-        setPosition(initial);
+        myPosition(initial);
         positionRef.current = initial;
         return;
       }
@@ -124,27 +137,27 @@ const useResizable = ({
 
       const newPosition = position + changeStep * dir;
       if (newPosition < min) {
-        setPosition(min);
+        myPosition(min);
         positionRef.current = min;
       } else if (newPosition > max) {
-        setPosition(max);
+        myPosition(max);
         positionRef.current = max;
       } else {
-        setPosition(newPosition);
+        myPosition(newPosition);
         positionRef.current = newPosition;
       }
 
       if (onResizeEnd) onResizeEnd({ position: positionRef.current });
     },
     // prettier-ignore
-    [disabled, axis, onResizeStart, shiftStep, step, reverse, position, min, max, onResizeEnd, initial],
+    [disabled, axis, onResizeStart, shiftStep, step, reverse, position, min, max, onResizeEnd, initial,myPosition],
   );
 
   const handleDoubleClick = useCallback<React.MouseEventHandler>(() => {
     if (disabled) return;
-    setPosition(initial);
+    myPosition(initial);
     positionRef.current = initial;
-  }, [disabled, initial]);
+  }, [disabled, initial, myPosition]);
 
   return {
     position,
@@ -156,7 +169,7 @@ const useResizable = ({
       onKeyDown: handleKeyDown,
       onDoubleClick: handleDoubleClick,
     },
-    setPosition,
+    setPosition: myPosition as Dispatch<React.SetStateAction<number>>,
     // deprecated. next version will remove this.
     splitterProps: {
       ...ariaProps,
