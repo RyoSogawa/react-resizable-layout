@@ -15,10 +15,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
       - name: install packages
-        run: yarn install
+        run: pnpm install
       - name: build storybook
-        run: yarn build-storybook
+        run: pnpm build-storybook
       - name: deploy storybook
         uses: JamesIves/github-pages-deploy-action@v4
         with:
