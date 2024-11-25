@@ -1,5 +1,7 @@
 import React, { useRef } from 'react';
 
+import { fn } from '@storybook/test';
+
 import SampleBox from './components/SampleBox';
 import SampleSeparator from './components/SampleSeparator';
 import Resizable from '../src/Resizable';
@@ -9,6 +11,10 @@ import type { Meta, StoryObj } from '@storybook/react';
 export default {
   title: 'WithContainer',
   component: Resizable,
+  args: {
+    onResizeStart: fn(),
+    onResizeEnd: fn(),
+  },
 } as Meta<typeof Resizable>;
 
 export const AxisXWithContainer: StoryObj<typeof Resizable> = {

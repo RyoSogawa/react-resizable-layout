@@ -34,6 +34,9 @@ npm install react-resizable-layout
 
 # Using Yarn
 yarn add react-resizable-layout
+
+# Using pnpm
+pnpm add react-resizable-layout
 ```
   
 

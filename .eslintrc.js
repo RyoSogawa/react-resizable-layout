@@ -86,7 +86,7 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'jsx-quotes': ['error', 'prefer-double'],
   },
-  ignorePatterns: ['.eslintrc.*'],
+  ignorePatterns: ['.eslintrc.*', 'vite.config.ts'],
   overrides: [
     {
       files: ['*.stories.tsx'],

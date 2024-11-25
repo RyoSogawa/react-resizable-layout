@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { fn } from '@storybook/test';
+
 import SampleBox from './components/SampleBox';
 import SampleSeparator from './components/SampleSeparator';
 import Resizable from '../src/Resizable';
@@ -9,6 +11,10 @@ import type { Meta, StoryObj } from '@storybook/react';
 export default {
   title: 'Advanced',
   component: Resizable,
+  args: {
+    onResizeStart: fn(),
+    onResizeEnd: fn(),
+  },
 } as Meta<typeof Resizable>;
 
 export const Callback: StoryObj<typeof Resizable> = {
