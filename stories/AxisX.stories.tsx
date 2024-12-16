@@ -23,6 +23,7 @@ export const AxisX: StoryObj<typeof Resizable> = {
     initial: 200,
     min: 100,
     max: 500,
+    useLocalstorage: true,
   },
   render: (props) => (
     <Resizable {...props}>
