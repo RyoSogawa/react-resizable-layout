@@ -5,7 +5,7 @@
 ### Test Workflow (`.github/workflows/test.yml`)
 - **Trigger**: On push and pull requests
 - **Environment**: Ubuntu latest
-- **Node Version**: 18.x
+- **Node Version**: 22.x
 - **Steps**:
   1. Checkout code
   2. Setup pnpm (version 7)
