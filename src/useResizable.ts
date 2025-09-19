@@ -91,6 +91,7 @@ const useResizable = ({
       if (disabled) return;
 
       e.stopPropagation();
+      e.preventDefault(); // prevent text selection
       isResizing.current = true;
       setIsDragging(true);
       document.addEventListener('pointermove', handlePointermove);
